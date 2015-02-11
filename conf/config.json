@@ -1,0 +1,5 @@
+{
+	"serverport": 3000,
+	"dbconn": "postgres://postgres:admin@localhost:5432/tpu",
+	"builds": "builds"
+}

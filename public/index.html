@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, user-scalable=no, initial-scale=1.0">
+
+<link href="js/libs/ol3/ol.css" rel="stylesheet" type="text/css" />
+<link href="js/libs/twitter-bootstrap/css/bootstrap.css"
+	rel="stylesheet" type="text/css" />
+<link href="css/map.css" rel="stylesheet" type="text/css" />
+
+<script src="js/libs/jquery/jquery.js" type="text/javascript"></script>
+<script
+	src="js/libs/jquery.devbridge-autocomplete/jquery.devbridge-autocomplete.min.js"
+	type="text/javascript"></script>
+<script src="js/searchModule.js" type="text/javascript"></script>
+<script src="js/libs/ol3/ol-debug.js" type="text/javascript"></script>
+<script src="js/libs/twitter-bootstrap/js/bootstrap.js"
+	type="text/javascript"></script>
+<script src="js/app.js" type="text/javascript"></script>
+
+<title>Карта</title>
+</head>
+
+<body onload="loadMap()">
+	<div class="container-fluid" style="height: 100%; width: 100%">
+		<div class="input-group" style="width: 100%">
+			<input type="text" class="form-control boxShadow"
+				placeholder="Что ищем?" name="srch" id="srch-term">
+			<!--                <div class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                </div>-->
+		</div>
+		<div id="map" class="ol-full-screen map"></div>
+		<div id="info" class="modal fade" role="dialog" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+						</button>
+						<h4 class="modal-title">Информация</h4>
+					</div>
+					<div class="modal-body">
+						<p id="infocontent">One fine body&hellip;</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- /.modal -->
+	</div>
+	<!-- Масштаб http://openlayers.org/ol3-workshop/controls/scaleline.html -->
+	<div id="scale-line" class="ol-scale-line"></div>
+
+</body>
+</html>
