@@ -16,7 +16,7 @@ var app = express();
 // all environments
 app.set('port', conf.get('serverport'));
 //app.set('views', __dirname + '/views');
-//app.set('view engine', 'ejs');
+app.set('view engine', 'ejs');
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
@@ -29,8 +29,12 @@ if ('development' === app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', routes.index);
-//app.get('/users', user.list);
+//app.get('/', routes.index);
+app.get('/', function(req, res, next){
+	res.render('index', {
+		
+	});
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   logger.info('Express server listening on port ' + app.get('port'));
