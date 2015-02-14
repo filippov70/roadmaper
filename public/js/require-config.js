@@ -20,15 +20,15 @@
 
 	shim: {
 
-		'autocomplete': {
-			deps:['jquery']
-		},
-
-		'ol': {
-			deps:['jquery']
+		ol: {
+			exports: 'ol'
 		},		
 
-		'bootstrap': {
+		autocomplete: {
+			deps:['jquery']
+		},	
+
+		bootstrap: {
 			deps:['jquery']
 		}
 		
