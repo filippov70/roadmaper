@@ -1,10 +1,13 @@
 require([
 	'jquery',
 	'domReady',
-	'ol'
-], function($, domReady, ol) {
+	'ol',
+	'helpers/layout'
+], function($, domReady, ol, layout) {
 
 	domReady(function() {
+
+		layout.init();
 
 	    var view = new ol.View({
 		        center: ol.proj.transform([84.952, 56.464], 'EPSG:4326', 'EPSG:3857'),

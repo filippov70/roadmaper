@@ -14,7 +14,9 @@
 
 		bootstrap: 'libs/twitter-bootstrap/js/bootstrap',
 
-		conf: 'configuration'
+		conf: 'configuration',
+
+		helpers: 'app/helpers/'
 
 	},
 
