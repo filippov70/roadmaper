@@ -8,6 +8,8 @@
 
 		jquery: 'libs/jquery/jquery-1.11.1.min',	
 
+		jstree: 'libs/jstree.min',
+
 		autocomplete: 'libs/jquery.devbridge-autocomplete/jquery.devbridge-autocomplete.min',
 
 		ol: 'libs/ol3/ol',
@@ -30,6 +32,10 @@
 			deps:['jquery']
 		},	
 
+		jstree: {
+			deps:['jquery']
+		},	
+		
 		bootstrap: {
 			deps:['jquery']
 		}

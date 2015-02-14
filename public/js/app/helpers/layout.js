@@ -6,9 +6,6 @@ define([
 
 		init: function(cart) {
 
-			//Sidebar width in pixels
-	        var left_side_width = 220; 
-
 	        //Enable sidebar toggle
 	        $("[data-toggle='offcanvas']").click(function(e) {
 	            e.preventDefault();

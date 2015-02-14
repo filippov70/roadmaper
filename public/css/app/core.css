@@ -47,6 +47,7 @@ body > .header {
   left: 0;
   right: 0;
   z-index: 1030;
+  background-color: #367fa9;
 }
 /* Define 2 column template */
 .right-side,
@@ -57,12 +58,12 @@ body > .header {
 /*right side - contins main content*/
 .right-side {
   background-color: #f9f9f9;
-  margin-left: 220px;
+  margin-left: 320px;
 }
 /*left side - contains sidebar*/
 .left-side {
   position: absolute;
-  width: 220px;
+  width: 320px;
   top: 0;
 }
 @media screen and (min-width: 992px) {
@@ -78,7 +79,7 @@ body > .header {
   }
   /* Left side collapse */
   .left-side.collapse-left {
-    left: -220px;
+    left: -320px;
   }
 }
 /*Give content full width on xs screens*/
@@ -465,7 +466,7 @@ body > .header {
 body > .header .navbar {
   height: 50px;
   margin-bottom: 0;
-  margin-left: 220px;
+  margin-left: 320px;
 }
 body > .header .navbar .sidebar-toggle {
   float: left;
@@ -527,8 +528,8 @@ body > .header .logo {
   line-height: 50px;
   text-align: center;
   padding: 0 10px;
-  width: 220px !important;
-  max-width: 220px !important;
+  width: 320px !important;
+  max-width: 320px !important;
   top:0 !important;
   left:0 !important;
   font-family: 'Kaushan Script', cursive;
@@ -724,26 +725,26 @@ body > .header .logo .icon {
     position: relative;
   }
   .row-offcanvas-right .sidebar-offcanvas {
-    right: -220px;
+    right: -320px;
   }
   .row-offcanvas-left .sidebar-offcanvas {
-    left: -220px;
+    left: -320px;
   }
   .row-offcanvas-right.active {
-    right: 220px;
+    right: 320px;
   }
   .row-offcanvas-left.active {
-    left: 220px;
+    left: 320px;
   }
   .sidebar-offcanvas {
     left: 0;
   }
   body.fixed .sidebar-offcanvas {
     margin-top: 50px;
-    left: -220px;
+    left: -320px;
   }
   body.fixed .row-offcanvas-left.active .navbar {
-    left: 220px !important;
+    left: 320px !important;
     right: 0;
   }
   body.fixed .row-offcanvas-left.active .sidebar-offcanvas {
