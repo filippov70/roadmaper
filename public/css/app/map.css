@@ -37,3 +37,19 @@ body{
 	height: 100%;
 	width: 100%;
 }
+
+/*tree*/
+.glyphicon.color-hard-blue{
+	color:#307095;
+}
+.glyphicon.color-middle-blue{
+	color:#307095;
+}
+.glyphicon.color-blue{
+	color:#307095;
+}
+
+.sidebar a.jstree-clicked,
+.sidebar a.jstree-clicked .glyphicon{
+	color:#fff;
+}
