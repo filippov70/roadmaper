@@ -2,10 +2,11 @@ require([
 	'jquery',
 	'domReady',
 	'ol',
+	'mapConf',
 	'helpers/Layout',
 	'map/LayersTree',
-	'map/OlLayerFactory'
-], function($, domReady, ol, Layout, LayersTree, OlLayerFactory) {
+	'map/OlLayerSwitcher'
+], function($, domReady, ol, mapConf, Layout, LayersTree, OlLayerSwitcher) {
 
 	domReady(function() {
 
@@ -13,54 +14,26 @@ require([
 
 			layersTree = new LayersTree($('#jstree_demo_div')),
 
-			view = new ol.View({
-				center: ol.proj.transform([84.952, 56.464], 'EPSG:4326', 'EPSG:3857'),
-				zoom: 12
-			}),
-
-			osm = new ol.layer.Tile({
-				source: new ol.source.OSM()
-			}),
-
 			map = new ol.Map({
-				layers: [osm],
+				layers: [new ol.layer.Tile({source: new ol.source.OSM()})],
 				target: 'map',
 				controls: ol.control.defaults().extend([
 					new ol.control.ScaleLine({
 						units: 'metric'
 					})
 				]),
-				view: view
+				view: new ol.View({
+					center: ol.proj.transform([mapConf.centerLon, mapConf.centerLat], mapConf.centerProj, mapConf.mapProj),
+					zoom: mapConf.zoom
+				})
 			}),
 
-			olLayerFactory = new OlLayerFactory({
+			olLayerSwitcher = new OlLayerSwitcher({
 				map: map
 			});
 
-		layersTree.onChange = function(e, data) {
-
-			var layerInfo = data.node.original.layerInfo;
-
-			if(!layerInfo){
-				console.log(data)
-				return;
-			}
-
-			if(layerInfo.layer){
-
-				if(data.action === "select_node"){
-					layerInfo.layer.setVisible(true);
-				}else{
-					layerInfo.layer.setVisible(false);
-				}
-				
-				console.log('visible')
-			}else{
-				console.log('create')
-				layerInfo.layer = olLayerFactory.createLayer(data.node.original.layerInfo);
-			}
-
-		};	
-
+		layersTree.onChange = function(e, data) {			
+			olLayerSwitcher.switchLayer(data);
+		};
 	})
 });

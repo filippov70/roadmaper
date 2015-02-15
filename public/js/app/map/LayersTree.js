@@ -21,8 +21,8 @@ define([
 				check_callback: true,
 				themes: {
 	                name: 'proton',
-	                responsive: true,
-	                stripes: true
+	                responsive: true
+	                //stripes: true
 				},
 				data: layersTreeConf.data
 			},

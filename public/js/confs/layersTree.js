@@ -7,13 +7,12 @@ define([], function() {
 	return {
 		data: [{
 			text: 'Дорога1',
-			id: 'road1',
 			type: 'road',
 			state: {
 				opened: true
 			},
 			children: [{
-				text: 'Пусковые комплексы1',
+				text: 'Административное деление',
 				type: 'complex',
 				state: {
 					opened: true
@@ -30,89 +29,86 @@ define([], function() {
 						serviceFormat: serviceFormat.wms,
 						isBaseLayer:false					
 					},
-					type: 'file'
+					type: 'layer'
 				}, {
-					text: 'Слой1',
-					id: 'layer2',
-					type: 'file'
-				}, {
-					text: 'Слой1',
-					id: 'layer3',
-					type: 'file'
+					text: 'Границы населенных пунктов',
+					layerInfo: {
+						url: 'http://www.incom.tomsk.ru:18080/geoserver/tis/wms?',
+						layers: 'tis:settlements',
+						version: '1.3.0',
+						srs: 'EPSG:3857',
+						visible: true,
+						opacity: 100,
+						serviceFormat: serviceFormat.wms,
+						isBaseLayer:false					
+					},
+					type: 'layer'
 				}]
 			}, {
-				text: 'Пусковые комплексы2',
-				id: 'complex2',
+				text: 'Росреестр',
 				type: 'complex',
 				state: {
 					opened: true
 				},
 				children: [{
-					text: 'Слой1',
-					id: 'layer4',
-					type: 'file'
-				}, {
-					text: 'Слой1',
-					id: 'layer5',
-					type: 'file'
-				}, {
-					text: 'Слой1',
-					id: 'layer6',
-					type: 'file'
+					text: 'Кадастр недвижимости ТО',
+					layerInfo: {
+						url: 'http://www.incom.tomsk.ru:18080/geoserver/tis/wms?',
+						layers: 'tis:cadastreparcel',
+						version: '1.1.0',
+						srs: 'EPSG:3857',
+						visible: true,
+						opacity: 100,
+						serviceFormat: serviceFormat.wms,
+						isBaseLayer:false					
+					},
+					type: 'layer'
 				}]
 			}]
 		}, {
 
 			text: 'Дорога2',
-			id: 'road2',
 			type: 'road',
 			state: {
 				opened: true
 			},
 			children: [{
-				text: 'Пусковые комплексы1',
-				id: 'complex3',
+				text: 'Полезные ископаемые',
 				type: 'complex',
 				state: {
 					opened: true
 				},
 				children: [{
-					text: 'Слой1',
-					id: 'layer7',
-					type: 'file'
+					text: 'Общераспространённые полезные ископаемые',
+					layerInfo: {
+						url: 'http://www.incom.tomsk.ru:18080/geoserver/tis/wms?',
+						layers: 'tis:publicminerals',
+						version: '1.3.0',
+						srs: 'EPSG:3857',
+						visible: true,
+						opacity: 100,
+						serviceFormat: serviceFormat.wms,
+						isBaseLayer:false					
+					},
+					type: 'layer'
 				}, {
-					text: 'Слой1',
-					id: 'layer8',
-					type: 'file'
-				}, {
-					text: 'Слой1',
-					id: 'layer9',
-					type: 'file'
-				}]
-			}, {
-				text: 'Пусковые комплексы2',
-				id: 'complex4',
-				type: 'complex',
-				state: {
-					opened: true
-				},
-				children: [{
-					text: 'Слой1',
-					id: 'layer10',
-					type: 'file'
-				}, {
-					text: 'Слой1',
-					id: 'layer11',
-					type: 'file'
-				}, {
-					text: 'Слой1',
-					id: 'layer12',
-					type: 'file'
+					text: 'Сельскохозяйственные угодия ТО',
+					layerInfo: {
+						url: 'http://www.incom.tomsk.ru:18080/geoserver/tis/wms?',
+						layers: 'tis:agroWGS',
+						version: '1.1.0',
+						srs: 'EPSG:3857',
+						visible: true,
+						opacity: 100,
+						serviceFormat: serviceFormat.wms,
+						isBaseLayer:false					
+					},
+					type: 'layer'
 				}]
 			}]
 		}],
 		types: {
-			file: {
+			layer: {
 				icon: 'glyphicon glyphicon-tasks color-blue'
 			},
 			road: {

@@ -13,6 +13,7 @@
 
 		appConf: 'confs/app',
 		layersTreeConf: 'confs/layersTree',
+		mapConf: 'confs/map',
 		helpers: 'app/helpers/',
 		map: 'app/map/'
 
