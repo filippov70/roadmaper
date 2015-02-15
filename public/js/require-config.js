@@ -8,12 +8,13 @@
 		jquery: 'libs/jquery/jquery-1.11.1.min',	
 		jstree: 'libs/jstree.min',
 		autocomplete: 'libs/jquery.devbridge-autocomplete/jquery.devbridge-autocomplete.min',
-		ol: 'libs/ol3/ol',
+		ol: 'libs/ol3/ol-debug',
 		bootstrap: 'libs/twitter-bootstrap/js/bootstrap',
 
 		appConf: 'confs/app',
 		layersTreeConf: 'confs/layersTree',
-		helpers: 'app/helpers/'
+		helpers: 'app/helpers/',
+		map: 'app/map/'
 
 	},
 

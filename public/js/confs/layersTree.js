@@ -1,5 +1,9 @@
 define([], function() {
 
+	var serviceFormat = {
+			wms : 1
+		};
+
 	return {
 		data: [{
 			text: 'Дорога1',
@@ -10,15 +14,22 @@ define([], function() {
 			},
 			children: [{
 				text: 'Пусковые комплексы1',
-				id: 'complex1',
 				type: 'complex',
 				state: {
 					opened: true
 				},
 				children: [{
-					text: 'Слой1',
-					layerInfo: ['1', '2'],
-					id: 'layer1',
+					text: 'Дорожно-транспортная сеть',
+					layerInfo: {
+						url: 'http://www.incom.tomsk.ru:18080/geoserver/tis/wms?',
+						layers: 'tis:all_roads',
+						version: '1.3.0',
+						srs: 'EPSG:3857',
+						visible: true,
+						opacity: 100,
+						serviceFormat: serviceFormat.wms,
+						isBaseLayer:false					
+					},
 					type: 'file'
 				}, {
 					text: 'Слой1',
