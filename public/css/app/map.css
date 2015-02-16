@@ -17,6 +17,8 @@ limitations under the License.
     Created on : Dec 15, 2014, 12:37:10 PM
     Author     : filippov
 */
+
+/*layout*/
 html, 
 body{
 	width: 100%;
@@ -25,7 +27,6 @@ body{
 	padding: 0;
 	overflow: hidden;
 }
-
 .wrapper,
 .content,
 .right-side {
@@ -37,12 +38,13 @@ body{
 	overflow: auto;
 }
 
+/*map*/
 .map {
 	height: 100%;
 	width: 100%;
 }
 
-/*tree*/
+/*layer tree*/
 .glyphicon.color-hard-blue{
 	color:#307095;
 }

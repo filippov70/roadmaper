@@ -106,6 +106,47 @@ define([], function() {
 					type: 'layer'
 				}]
 			}]
+		}, {
+
+			text: 'ИндорСофт',
+			type: 'road',
+			state: {
+				opened: true
+			},
+			children: [{
+				text: 'Недвижимость',
+				type: 'complex',
+				state: {
+					opened: true
+				},
+				children: [{
+					text: 'Гостиницы',
+					layerInfo: {
+						url: 'http://data1.geo.indorsoft.ru/geoserver/geoportal/wms?',
+						layers: 'geoportal:RoadHotel_pt',
+						version: '1.3.0',
+						srs: 'EPSG:3857',
+						visible: true,
+						opacity: 100,
+						serviceFormat: serviceFormat.wms,
+						isBaseLayer:false					
+					},
+					type: 'layer'
+				}, {
+					text: 'АЗС',
+					layerInfo: {
+						url: 'http://data1.geo.indorsoft.ru/geoserver/geoportal/wms?',
+						layers: 'geoportal:RoadGasStation_ar',
+						version: '1.3.0',
+						srs: 'EPSG:3857',
+						visible: true,
+						opacity: 100,
+						serviceFormat: serviceFormat.wms,
+						isBaseLayer:false					
+					},
+					type: 'layer'
+				}]
+			}]
 		}],
 		types: {
 			layer: {
