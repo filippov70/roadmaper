@@ -32,6 +32,10 @@ body{
 	height: 100%;
 	padding: 0;	
 }
+.left-side {
+    bottom: 0;
+	overflow: auto;
+}
 
 .map {
 	height: 100%;
@@ -48,7 +52,6 @@ body{
 .glyphicon.color-blue{
 	color:#307095;
 }
-
 .sidebar a.jstree-clicked,
 .sidebar a.jstree-clicked .glyphicon{
 	color:#fff;
