@@ -56,7 +56,7 @@ define([
 				var that = this,
 					layers = [],
 					promises = $.map(urls, function (url) {
-						return $.ajax(url).then(function (res) {												
+						return $.ajax('/gf/'+url).then(function (res) {												
 							console.log(res);
 						});
 					});

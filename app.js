@@ -13,6 +13,10 @@ var express = require('express')
 
 var app = express();
 
+/*proxy for getFeatureInfo*/
+var forward = require('./proxy/forward.js');
+app.use(forward(/\/gf\/(.*)/, ''));
+
 // all environments
 app.set('port', conf.get('serverport'));
 //app.set('views', __dirname + '/views');
