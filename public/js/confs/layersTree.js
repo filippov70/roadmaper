@@ -18,9 +18,22 @@ define([], function() {
 					opened: true
 				},
 				children: [{
+					text: 'Административно-территориальное деление',
+					layerInfo: {
+						url: 'http://91.210.186.81:8181/geoserver/tis/wms?',
+						layers: 'tis:admin_class',
+						version: '1.1.1',
+						srs: 'EPSG:3857',
+						visible: true,
+						opacity: 100,
+						serviceFormat: serviceFormat.wms,
+						isBaseLayer:false					
+					},
+					type: 'layer'
+				}, {
 					text: 'Дорожно-транспортная сеть',
 					layerInfo: {
-						url: 'http://www.incom.tomsk.ru:18080/geoserver/tis/wms?',
+						url: 'http://91.210.186.81:8181/geoserver/tis/wms?',
 						layers: 'tis:all_roads',
 						version: '1.3.0',
 						srs: 'EPSG:3857',
@@ -33,7 +46,7 @@ define([], function() {
 				}, {
 					text: 'Границы населенных пунктов',
 					layerInfo: {
-						url: 'http://www.incom.tomsk.ru:18080/geoserver/tis/wms?',
+						url: 'http://91.210.186.81:8181/geoserver/tis/wms?',
 						layers: 'tis:settlements',
 						version: '1.3.0',
 						srs: 'EPSG:3857',
@@ -53,7 +66,7 @@ define([], function() {
 				children: [{
 					text: 'Кадастр недвижимости ТО',
 					layerInfo: {
-						url: 'http://www.incom.tomsk.ru:18080/geoserver/tis/wms?',
+						url: 'http://91.210.186.81:8181/geoserver/tis/wms?',
 						layers: 'tis:cadastreparcel',
 						version: '1.1.0',
 						srs: 'EPSG:3857',
@@ -81,7 +94,7 @@ define([], function() {
 				children: [{
 					text: 'Общераспространённые полезные ископаемые',
 					layerInfo: {
-						url: 'http://www.incom.tomsk.ru:18080/geoserver/tis/wms?',
+						url: 'http://91.210.186.81:8181/geoserver/tis/wms?',
 						layers: 'tis:publicminerals',
 						version: '1.3.0',
 						srs: 'EPSG:3857',
@@ -94,7 +107,7 @@ define([], function() {
 				}, {
 					text: 'Сельскохозяйственные угодия ТО',
 					layerInfo: {
-						url: 'http://www.incom.tomsk.ru:18080/geoserver/tis/wms?',
+						url: 'http://91.210.186.81:8181/geoserver/tis/wms?',
 						layers: 'tis:agroWGS',
 						version: '1.1.0',
 						srs: 'EPSG:3857',

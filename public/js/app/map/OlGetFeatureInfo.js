@@ -10,8 +10,6 @@ define([
 		var _options = {
 				map : null,
 
-				layers : [],
-
 				listener : null,
 
 				featureCount : 1,
@@ -40,6 +38,10 @@ define([
      };		
 
 		return {
+
+			featureCount: _options.featureCount,
+
+			infoFormat: _options.infoFormat,
 
 			onGetfeatureinfo: _options.onGetfeatureinfo,
 
