@@ -35,8 +35,9 @@ require([
 
 			olGetFeatureInfo = new OlGetFeatureInfo({
 				map: map,
-				/*onGetfeatureinfo: function (evt) {												
-				}*/
+				onGetfeatureinfo: function (evt) {	
+					console.log(evt);
+				}
 			});
 
 		layersTree.onChange = function(e, data) {			
