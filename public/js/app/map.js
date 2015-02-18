@@ -6,8 +6,9 @@ require([
 	'helpers/Layout',
 	'map/LayersTree',
 	'map/OlLayerSwitcher',
-	'map/OlGetFeatureInfo'
-], function($, domReady, ol, mapConf, Layout, LayersTree, OlLayerSwitcher, OlGetFeatureInfo) {
+	'map/OlGetFeatureInfo',
+	'map/OlPopup'
+], function($, domReady, ol, mapConf, Layout, LayersTree, OlLayerSwitcher, OlGetFeatureInfo, OlPopup) {
 
 	domReady(function() {
 
@@ -33,10 +34,15 @@ require([
 				map: map
 			}),
 
+			olPopup = new OlPopup({
+				map: map
+			}),			
+
 			olGetFeatureInfo = new OlGetFeatureInfo({
 				map: map,
-				onGetfeatureinfo: function (evt) {	
+				onGetfeatureinfo: function (evt, coordinate) {	
 					console.log(evt);
+					olPopup.show(coordinate);
 				}
 			});
 

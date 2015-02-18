@@ -18,7 +18,7 @@
 	<link href="/css/app/map.css" rel="stylesheet" type="text/css" />
 
     <!-- RequireJS-->
-    <script src="/js/libs/require-2.1.15.js"></script>  	
+    <script src="/js/libs/require-2.1.15.js"></script>  
 
 	<title>Карта</title>
 </head>
@@ -54,7 +54,13 @@
             <aside class="right-side">                
 
                 <section class="content">   
-                	<div id="map" class="map"></div>         	           	                	                
+                	<div id="map" class="map">
+                        <div id="popup" class="ol-popup">
+                            <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+                            <div id="popup-content">                        
+                            </div>
+                        </div>   
+                    </div>         	           	                	                
                 </section>
 
             </aside>

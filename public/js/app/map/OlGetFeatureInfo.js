@@ -43,7 +43,7 @@ define([
 
 			isActivate: _options.isActivate,
 
-			getFeatures: function (urls) {
+			getFeatures: function (urls, coordinate) {
 				urls = urls || [];
 				var that = this,
 					promises = $.map(urls, function (url) {
@@ -55,7 +55,7 @@ define([
 				$.when.apply(this, promises)
 					.then(function (res) {
 						if (typeof that.onGetfeatureinfo === 'function') {
-							that.onGetfeatureinfo(res);
+							that.onGetfeatureinfo(res, coordinate);
 						}
 					});
 			},			
@@ -90,7 +90,7 @@ define([
 				var that = this;
 				_options.listener = that.map.on('singleclick', function (evt) {				
 					console.log('activate');
-					that.getFeatures(that.getUrls(evt.coordinate));
+					that.getFeatures(that.getUrls(evt.coordinate), evt.coordinate);
 				});
 				that.isActivate = true;
 			},
