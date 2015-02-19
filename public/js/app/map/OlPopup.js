@@ -1,20 +1,26 @@
 define([
 	'jquery',
+	'jsrender',
 	'ol'
-], function($, ol) {
+], function($, jsrender, ol) {
 
 	'use strict';
+
+	var POPUP = '<div id="popup" class="ol-popup" >'+
+                    '<a href="#" id="popup-closer" class="ol-popup-closer"></a>'+
+                    '<div id="popup-content">'+                      
+                    '</div>'+
+                '</div>',
+        POPUP_WRAPPER = '#popup',
+        POPUP_CONTENT = '#popup-content',
+        POPUP_CLOSER = '#popup-closer';  
 
 	return function(options) {
 
 		var _options = {
 				map : null,
 
-				container : document.getElementById('popup'),
-
-				content : document.getElementById('popup-content'),
-
-				closer : document.getElementById('popup-closer'),
+				tpl: $( "#movieTemplate" ),
 
 				overlay : null,
 
@@ -25,40 +31,40 @@ define([
 
 		$.extend(_options, options || {});
 
-		if(_options.map) {
+		if(_options.map && _options.map instanceof ol.Map) {
+			$(_options.map.getViewport()).parent().prepend(POPUP);
 			_options.mapProjection = _options.map.getView().getProjection().getCode();
 		} else {
 			return;
 		}	
 
 		_options.overlay = new ol.Overlay({
-			element: _options.container
+			element: $(POPUP_WRAPPER)
 		});		
-
-		_options.closer.onclick = function() {
-			_options.overlay.setPosition(undefined);
-			_options.closer.blur();
-			return false;
-		};
 
 		_options.map.addOverlay(_options.overlay);
 
-		_options.content.innerHTML = '<div class="row">'+
-		                        '<div class="col-lg-6 col-md-6"></div>'+
-		                        '<div class="col-lg-6 col-md-6"></div>'+
-		                    '</div>'+
-		                    '<div class="row">'+
-		                        '<div class="col-lg-6 col-md-6"></div>'+
-		                        '<div class="col-lg-6 col-md-6"></div>'+
-		                    '</div>';		
+		$(POPUP_CLOSER).click(function() {
+			_options.overlay.setPosition(undefined);
+			return false;
+		});		
 
 		return {
 
 			overlay: _options.overlay,
 
-			show: function (coordinate) {
+			show: function (coordinate, info) {
+				info = info || [];
 				var that = this;
-				that.overlay.setPosition(coordinate);				
+				that._renderContent(info);
+				that.overlay.setPosition(coordinate);
+			},
+
+			_renderContent:function(info){
+				info = info || [];
+				$(POPUP_CONTENT).html(
+				    _options.tpl.render( info )
+				);				
 			}				
 		}
 	};

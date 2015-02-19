@@ -1,8 +1,8 @@
 define([], function() {
 
 	var serviceFormat = {
-			wms : 1
-		};
+		wms: 1
+	};
 
 	return {
 		data: [{
@@ -27,7 +27,17 @@ define([], function() {
 						visible: true,
 						opacity: 100,
 						serviceFormat: serviceFormat.wms,
-						isBaseLayer:false					
+						isBaseLayer: false,
+						aliases: [{
+							field: 'calc_area',
+							alias: 'Площадь'
+						}, {
+							field: 'adm_name',
+							alias: 'Наименование'
+						}, {
+							field: 'cad_num',
+							alias: 'Кадастровый номер'
+						}]
 					},
 					type: 'layer'
 				}, {
@@ -40,7 +50,7 @@ define([], function() {
 						visible: true,
 						opacity: 100,
 						serviceFormat: serviceFormat.wms,
-						isBaseLayer:false					
+						isBaseLayer: false
 					},
 					type: 'layer'
 				}, {
@@ -53,7 +63,7 @@ define([], function() {
 						visible: true,
 						opacity: 100,
 						serviceFormat: serviceFormat.wms,
-						isBaseLayer:false					
+						isBaseLayer: false
 					},
 					type: 'layer'
 				}]
@@ -73,7 +83,7 @@ define([], function() {
 						visible: true,
 						opacity: 100,
 						serviceFormat: serviceFormat.wms,
-						isBaseLayer:false					
+						isBaseLayer: false
 					},
 					type: 'layer'
 				}]
@@ -101,7 +111,7 @@ define([], function() {
 						visible: true,
 						opacity: 100,
 						serviceFormat: serviceFormat.wms,
-						isBaseLayer:false					
+						isBaseLayer: false
 					},
 					type: 'layer'
 				}, {
@@ -114,7 +124,7 @@ define([], function() {
 						visible: true,
 						opacity: 100,
 						serviceFormat: serviceFormat.wms,
-						isBaseLayer:false					
+						isBaseLayer: false
 					},
 					type: 'layer'
 				}]
@@ -142,7 +152,7 @@ define([], function() {
 						visible: true,
 						opacity: 100,
 						serviceFormat: serviceFormat.wms,
-						isBaseLayer:false					
+						isBaseLayer: false
 					},
 					type: 'layer'
 				}, {
@@ -155,7 +165,7 @@ define([], function() {
 						visible: true,
 						opacity: 100,
 						serviceFormat: serviceFormat.wms,
-						isBaseLayer:false					
+						isBaseLayer: false
 					},
 					type: 'layer'
 				}]

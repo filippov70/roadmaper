@@ -52,20 +52,18 @@
             </aside>
 
             <aside class="right-side">                
-
                 <section class="content">   
-                	<div id="map" class="map">
-                        <div id="popup" class="ol-popup">
-                            <a href="#" id="popup-closer" class="ol-popup-closer"></a>
-                            <div id="popup-content">                        
-                            </div>
-                        </div>   
-                    </div>         	           	                	                
+                	<div id="map" class="map"></div>         	           	                	                
                 </section>
-
             </aside>
 
         </div>
+
+        <script id="movieTemplate" type="text/x-jsrender">
+            <div>
+                {{:#index+1}}: <b>{{>key}}</b> ({{>value}})
+            </div>
+        </script>        
 
         <script src="/js/require-config.js"></script>
         <script src="/js/app/map.js"></script>

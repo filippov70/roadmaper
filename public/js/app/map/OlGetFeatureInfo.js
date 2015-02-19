@@ -93,7 +93,6 @@ define([
 			activate: function () {
 				var that = this;
 				_options.listener = that.map.on('singleclick', function (evt) {				
-					console.log('activate');
 					that.getFeatures(that.getUrls(evt.coordinate), evt.coordinate);
 				});
 				that.isActivate = true;
@@ -103,7 +102,6 @@ define([
 				var that = this;
 				that.map.unByKey(_options.listener);
 				that.isActivate = false;
-				console.log('deactivate');
 			}		
 		}
 	};

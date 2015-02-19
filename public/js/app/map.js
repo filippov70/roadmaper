@@ -7,8 +7,9 @@ require([
 	'map/LayersTree',
 	'map/OlLayerSwitcher',
 	'map/OlGetFeatureInfo',
+	'map/OlGetFeatureMapper',
 	'map/OlPopup'
-], function($, domReady, ol, mapConf, Layout, LayersTree, OlLayerSwitcher, OlGetFeatureInfo, OlPopup) {
+], function($, domReady, ol, mapConf, Layout, LayersTree, OlLayerSwitcher, OlGetFeatureInfo, OlGetFeatureMapper, OlPopup) {
 
 	domReady(function() {
 
@@ -38,17 +39,19 @@ require([
 				map: map
 			}),			
 
+			olGetFeatureMapper = new OlGetFeatureMapper(),	
+
 			olGetFeatureInfo = new OlGetFeatureInfo({
 				map: map,
 				onGetfeatureinfo: function (evt, coordinate) {	
-					console.log(evt);
-					olPopup.show(coordinate);
+					evt.features = evt.features || [];
+					var info = olGetFeatureMapper.map(evt.features, evt.layerInfo.aliases)
+					olPopup.show(coordinate, info);
 				}
 			});
 
 		layersTree.onChange = function(e, data) {			
 			olLayerSwitcher.switchLayer(data);
-
 			if (olGetFeatureInfo.isActivate) {
 				olGetFeatureInfo.deactivate();							
 			} else {
