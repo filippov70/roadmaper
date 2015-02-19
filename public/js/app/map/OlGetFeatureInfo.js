@@ -43,12 +43,14 @@ define([
 
 			isActivate: _options.isActivate,
 
-			getFeatures: function (urls, coordinate) {
-				urls = urls || [];
+			getFeatures: function (layersInfo, coordinate) {
+				layersInfo = layersInfo || [];
 				var that = this,
-					promises = $.map(urls, function (url) {
-						return $.ajax('/gf/'+url).then(function (res) {		
+					promises = $.map(layersInfo, function (layerInfo) {
+						return $.ajax('/gf/' + layerInfo.getFUrl).then(function (res) {		
 							//Handler
+							res = res || {};
+							res.layerInfo = layerInfo;
 							return res;										
 						});
 					});
@@ -66,12 +68,13 @@ define([
 					viewResolution	= view.getResolution(),
 					projection		= view.getProjection().getCode(),				
 					layers			= that.map.getLayers().getArray(),
-					urls		= [];
+					layersInfo		= [];
 
 				$.each(layers, function (i, layer) {
 					var properties	= layer.getProperties(),
 						source		= layer.getSource(),
 						visible		= layer.getVisible(),
+						layerInfo   = properties.layerInfo || {},
 						isWms		= source instanceof ol.source.TileWMS,
 						url;
 						
@@ -80,10 +83,11 @@ define([
 							'INFO_FORMAT': that.infoFormat,
 							'feature_count': that.featureCount
 						}) || '';
-						urls.push(url);
+						layerInfo.getFUrl = url; 
+						layersInfo.push(layerInfo);
 					}
 				});
-				return urls;
+				return layersInfo;
 			},			
 
 			activate: function () {

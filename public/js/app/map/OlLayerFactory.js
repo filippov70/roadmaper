@@ -17,13 +17,16 @@ define([
 
 				var layer = null;
 
-				if(!layerInfo){
+				if (!layerInfo) {
 					return;
 				}
 
 				switch (layerInfo.serviceFormat) {
 					case 1:
 						layer = this._wms(layerInfo);
+						layer.setProperties({
+							layerInfo: layerInfo
+						});
 						break;
 				}
 
