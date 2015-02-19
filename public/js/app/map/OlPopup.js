@@ -8,7 +8,7 @@ define([
 
 	var POPUP = '<div id="popup" class="ol-popup" >'+
                     '<a href="#" id="popup-closer" class="ol-popup-closer"></a>'+
-                    '<div id="popup-content">'+                      
+                    '<div id="popup-content" class="popup-content">'+                      
                     '</div>'+
                 '</div>',
         POPUP_WRAPPER = '#popup',

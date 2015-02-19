@@ -72,6 +72,14 @@ body{
 	left: -180px;
 	width: 370px;
 }
+.ol-popup .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+.popup-content{
+	overflow: auto;
+	padding-bottom: 10px;
+}
 .ol-popup:after, .ol-popup:before {
 	top: 100%;
 	border: solid transparent;
