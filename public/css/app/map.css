@@ -37,11 +37,28 @@ body{
     bottom: 0;
 	overflow: auto;
 }
+.content {
+    position: relative;
+}
 
 /*map*/
 .map {
 	height: 100%;
 	width: 100%;
+}
+
+/*toolbar*/
+.map-toolbar{
+	position: absolute;
+	top:10px;
+	left: 10px;
+}
+.map-toolbar .btn:active,
+.map-toolbar .btn.active {
+    background-image: none;
+    box-shadow: none;
+    outline: 0 none;
+    background: #d3e6f1
 }
 
 /*layer tree*/
