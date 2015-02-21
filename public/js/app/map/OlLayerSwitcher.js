@@ -30,12 +30,12 @@ define([
 			checkedItems: [],
 
 			toggleLayer:function(data){
-				var that = this,
-					layerInfo = data.node.original.layerInfo;
+				var that = this;					
+
 				if(that.isActive(data)){
-					that.showLayer(layerInfo);
+					that.showLayer(data.node);
 				}else{
-					that.hideLayer(layerInfo);
+					that.hideLayer(data.node);
 				}
 			},
 			toggleLayers:function(data){
@@ -46,8 +46,9 @@ define([
 					that.hideLayers(data);
 				}
 			},	
-			showLayer:function(layerInfo){
-				var that = this;
+			showLayer:function(node){
+				var that = this,
+					layerInfo = node.original.layerInfo;
 				if(!layerInfo){
 					return;
 				}
@@ -55,10 +56,13 @@ define([
 					layerInfo.layer.setVisible(true);
 				}else{
 					layerInfo.layer = _olLayerFactory.createLayer(layerInfo);
+					layerInfo.layer.setVisible(true);
 				}
+				that.checkedItems.push(node);
 			},	
-			hideLayer:function(layerInfo){
-				var that = this;
+			hideLayer:function(node){
+				var that = this,
+					layerInfo = node.original.layerInfo;
 				if(!layerInfo){
 					return;
 				}
@@ -68,23 +72,30 @@ define([
 					layerInfo.layer = _olLayerFactory.createLayer(layerInfo);
 					layerInfo.layer.setVisible(false);
 				}
+				that.deleteFromCheckedItems(node);
 			},	
 			showLayers:function(data){
 				var that = this,
 					checkedItems = data.instance.get_checked([true]);			
 				$.each(checkedItems, function(i, item){
-					that.showLayer(item.original.layerInfo);
-				});	
-				that.checkedItems = checkedItems;
+					that.showLayer(item);
+				});					
 			},
 			hideLayers:function(data){
 				var that = this,
 					unCheckedItems = that.checkedItems;			
 				$.each(unCheckedItems, function(i, item){
-					that.hideLayer(item.original.layerInfo);
+					that.hideLayer(item);
 				});	
-				that.checkedItems = unCheckedItems;
-			},			
+			},	
+			deleteFromCheckedItems:function(node){
+				node = node || {};
+				var that = this,
+					res = $.grep(that.checkedItems, function(item){
+						return item.id !== node.id;
+					});
+				that.checkedItems = res;
+			},
 			switchLayer: function(data) {
 				var that = this,
 					children = data.node.children;
