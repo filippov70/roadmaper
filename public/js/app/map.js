@@ -8,10 +8,14 @@ require([
 	'map/OlLayerSwitcher',
 	'map/OlGetFeatureInfo',
 	'map/OlGetFeatureMapper',
-	'map/OlPopup'
-], function($, domReady, ol, mapConf, Layout, LayersTree, OlLayerSwitcher, OlGetFeatureInfo, OlGetFeatureMapper, OlPopup) {
+	'map/OlPopup',
+	'map/OlLegend',
+	'bootstrap'
+], function($, domReady, ol, mapConf, Layout, LayersTree, OlLayerSwitcher, OlGetFeatureInfo, OlGetFeatureMapper, OlPopup, OlLegend) {
 
 	domReady(function() {
+
+		$('#map-tabs a:first').tab('show');
 
 		var layout = new Layout(),
 
@@ -37,7 +41,11 @@ require([
 
 			olPopup = new OlPopup({
 				map: map
-			}),			
+			}),		
+
+			olLegend = new OlLegend({
+				map: map
+			}),					
 
 			olGetFeatureMapper = new OlGetFeatureMapper(),	
 
@@ -58,5 +66,10 @@ require([
 				olGetFeatureInfo.activate();
 			}
 		};
+
+		$('a[href="#legend"]').on('shown.bs.tab', function (e) {
+			olLegend.create($('#legend'));
+		});	
+			
 	})
 });

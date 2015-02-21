@@ -26,6 +26,7 @@ define([], function() {
 						srs: 'EPSG:3857',
 						visible: true,
 						opacity: 100,
+						legend: true,
 						serviceFormat: serviceFormat.wms,
 						isBaseLayer: false,
 						aliases: [{
@@ -49,6 +50,7 @@ define([], function() {
 						srs: 'EPSG:3857',
 						visible: true,
 						opacity: 100,
+						legend: true,
 						serviceFormat: serviceFormat.wms,
 						isBaseLayer: false
 					},
@@ -62,6 +64,7 @@ define([], function() {
 						srs: 'EPSG:3857',
 						visible: true,
 						opacity: 100,
+						legend: true,
 						serviceFormat: serviceFormat.wms,
 						isBaseLayer: false
 					},
@@ -82,6 +85,7 @@ define([], function() {
 						srs: 'EPSG:3857',
 						visible: true,
 						opacity: 100,
+						legend: true,
 						serviceFormat: serviceFormat.wms,
 						isBaseLayer: false
 					},
@@ -110,6 +114,7 @@ define([], function() {
 						srs: 'EPSG:3857',
 						visible: true,
 						opacity: 100,
+						legend: true,
 						serviceFormat: serviceFormat.wms,
 						isBaseLayer: false
 					},
@@ -123,6 +128,7 @@ define([], function() {
 						srs: 'EPSG:3857',
 						visible: true,
 						opacity: 100,
+						legend: true,
 						serviceFormat: serviceFormat.wms,
 						isBaseLayer: false
 					},
@@ -151,6 +157,7 @@ define([], function() {
 						srs: 'EPSG:3857',
 						visible: true,
 						opacity: 100,
+						legend: true,
 						serviceFormat: serviceFormat.wms,
 						isBaseLayer: false
 					},
@@ -164,6 +171,7 @@ define([], function() {
 						srs: 'EPSG:3857',
 						visible: true,
 						opacity: 100,
+						legend: true,
 						serviceFormat: serviceFormat.wms,
 						isBaseLayer: false
 					},

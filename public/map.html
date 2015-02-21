@@ -47,7 +47,19 @@
 
             <aside class="left-side sidebar-offcanvas">
                 <section class="sidebar">
-                	<div id="jstree_demo_div"></div>
+                	
+                    <ul class="nav nav-tabs" role="tablist" id="map-tabs">
+                        <li role="presentation"><a href="#layers" aria-controls="layers" role="tab" data-toggle="tab">Слои</a></li>
+                        <li role="presentation"><a href="#legend" aria-controls="legend" role="tab" data-toggle="tab">Легенда</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane" id="layers">
+                            <div id="jstree_demo_div"></div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="legend"></div>
+                    </div>
+
                 </section>
             </aside>
 

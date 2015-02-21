@@ -8,6 +8,7 @@
 		jquery: 'libs/jquery/jquery-1.11.1.min',	
 		jstree: 'libs/jstree.min',
 		jsrender: 'libs/jsrender.min',
+		bootstrap: 'libs/bootstrap.min',
 		autocomplete: 'libs/jquery.devbridge-autocomplete/jquery.devbridge-autocomplete.min',
 		ol: 'libs/ol3/ol-debug',
 		bootstrap: 'libs/twitter-bootstrap/js/bootstrap',
@@ -26,6 +27,10 @@
 			exports: 'ol'
 		},	
 
+		bootstrap: {
+			deps:['jquery']
+		},
+		
 		jsrender: {
 			deps:['jquery']
 		},	
