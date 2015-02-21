@@ -56,7 +56,8 @@ body{
 }
 .sidebar a.jstree-clicked,
 .sidebar a.jstree-clicked .glyphicon{
-	color:#fff;
+	color:#555;
+	background: none;
 }
 
 /**popup**/
