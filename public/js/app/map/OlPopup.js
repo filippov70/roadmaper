@@ -66,6 +66,6 @@ define([
 				    _options.tpl.render( info )
 				);				
 			}				
-		}
+		};
 	};
 });

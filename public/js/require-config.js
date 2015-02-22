@@ -9,6 +9,7 @@
 		jstree: 'libs/jstree.min',
 		jsrender: 'libs/jsrender.min',
 		bootstrap: 'libs/bootstrap.min',
+		proj4: 'libs/proj4',
 		autocomplete: 'libs/jquery.devbridge-autocomplete/jquery.devbridge-autocomplete.min',
 		ol: 'libs/ol3/ol-debug',
 		bootstrap: 'libs/twitter-bootstrap/js/bootstrap',

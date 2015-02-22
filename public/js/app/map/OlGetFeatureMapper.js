@@ -43,6 +43,6 @@ define([
 				}
 				return info;
 			}			
-		}
+		};
 	};
 });

@@ -60,6 +60,6 @@ define([
 				return layer;
 
 			}.bind(this)
-		}
+		};
 	};
 });

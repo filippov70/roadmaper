@@ -103,6 +103,6 @@ define([
 				that.map.unByKey(_options.listener);
 				that.isActivate = false;
 			}		
-		}
+		};
 	};
 });

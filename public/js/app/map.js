@@ -11,8 +11,9 @@ require([
 	'map/OlPopup',
 	'map/OlLegend',
 	'map/OlToolbar',
+	'map/OlFeatureHighlight',
 	'bootstrap'
-], function($, domReady, ol, mapConf, Layout, LayersTree, OlLayerSwitcher, OlGetFeatureInfo, OlGetFeatureMapper, OlPopup, OlLegend, OlToolbar) {
+], function($, domReady, ol, mapConf, Layout, LayersTree, OlLayerSwitcher, OlGetFeatureInfo, OlGetFeatureMapper, OlPopup, OlLegend, OlToolbar, OlFeatureHighlight) {
 
 	domReady(function() {
 
@@ -46,17 +47,33 @@ require([
 
 			olLegend = new OlLegend({
 				map: map
-			}),								
+			}),		
+
+			olFeatureHighlight = new OlFeatureHighlight({
+				map: map
+			}),										
 
 			olGetFeatureMapper = new OlGetFeatureMapper(),	
 
 			olGetFeatureInfo = new OlGetFeatureInfo({
 				map: map,
 				onGetfeatureinfo: function (evt, coordinate) {	
+					
 					if(evt){
 						evt.features = evt.features || [];
-						var info = olGetFeatureMapper.map(evt.features, evt.layerInfo.aliases)
+
+						var info = olGetFeatureMapper.map(evt.features, evt.layerInfo.aliases),
+							feature = evt.features[0] || {},
+							properties = feature.properties || {},
+							geometry = feature.geometry || {},
+							projection = properties.projection || '',
+							coordinates = geometry.coordinates || [];
+
 						olPopup.show(coordinate, info);
+
+						if (coordinates.length) {								
+							olFeatureHighlight.byGeom(coordinates, geometry.type, projection);
+						}					
 					}
 				}
 			}),
