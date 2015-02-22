@@ -36,6 +36,17 @@ body{
 .left-side {
     bottom: 0;
 	overflow: auto;
+	border-right: 1px solid #93c1dd;
+	border-top: 1px solid #b9d7e9;
+
+}
+.right-side {
+    border-left: 1px solid #b9d7e9;
+    border-top: 1px solid #b9d7e9;
+}
+body > .header .navbar,
+body > .header .logo {
+    border-bottom: 1px solid #93c1dd;
 }
 .content {
     position: relative;
