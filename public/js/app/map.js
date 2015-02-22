@@ -82,7 +82,9 @@ require([
 				map: map,
 				info:function(){
 					if (olGetFeatureInfo.isActivate) {
-						olGetFeatureInfo.deactivate();							
+						olGetFeatureInfo.deactivate();
+						olFeatureHighlight.clear();
+						olPopup.clear();
 					} else {
 						olGetFeatureInfo.activate();
 					}					
@@ -91,6 +93,8 @@ require([
 
 		layersTree.onChange = function(e, data) {			
 			olLayerSwitcher.switchLayer(data);
+			olFeatureHighlight.clear();
+			olPopup.clear();
 		};
 
 		$('a[href="#legend"]').on('shown.bs.tab', function (e) {

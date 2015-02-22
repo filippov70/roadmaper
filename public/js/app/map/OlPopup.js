@@ -65,6 +65,12 @@ define([
 				$(POPUP_CONTENT).html(
 				    _options.tpl.render( info )
 				);				
+			},
+
+			clear: function(){
+				if(this.overlay){
+					this.overlay.setPosition(undefined);
+				}				
 			}				
 		};
 	};

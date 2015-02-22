@@ -8,9 +8,8 @@ define([], function() {
 		zoom: 7,
 
 		theme: {
-			color: '#1a321a',
-			borderColor: '#428143',
-			borderFeatureColor: 'red'
+			strokeColor: 'rgba(251, 194, 20, 0.7)',
+			fillColor: 'rgba(54, 127, 169, 0.5)'
 		}		
 		
 	};

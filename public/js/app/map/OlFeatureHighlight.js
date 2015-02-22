@@ -89,11 +89,11 @@
 
 				var that = this,
 					stroke = new ol.style.Stroke({
-						color: mapConf.theme.color,
-						width: 2
+						color: mapConf.theme.strokeColor,
+						width: 3
 					}),
 					fill = new ol.style.Fill({
-						color: mapConf.theme.borderColor
+						color: mapConf.theme.fillColor
 					});
 
 				if (that.vectorLayer) {
@@ -116,8 +116,10 @@
 				that.map.addLayer(that.vectorLayer);
 			},
 
-			clearAll: function() {
-				that.vectorLayer.getSource().clear();
+			clear: function() {
+				if(this.vectorLayer){
+					this.vectorLayer.getSource().clear();
+				}				
 			}
 		};
 	};

@@ -51,6 +51,12 @@ body > .header .logo {
 .content {
     position: relative;
 }
+.noPadding{
+	padding: 0;
+}
+.padding-right{
+	padding-right: 5px;
+}
 
 /*map*/
 .map {
@@ -104,10 +110,13 @@ body > .header .logo {
 .ol-popup .row {
     margin-left: 0;
     margin-right: 0;
+    font-size: 13px;
+    font-family: 'Roboto', sans-serif;   
 }
 .popup-content{
 	overflow: auto;
 	padding-bottom: 10px;
+	max-height: 350px;
 }
 .ol-popup:after, .ol-popup:before {
 	top: 100%;

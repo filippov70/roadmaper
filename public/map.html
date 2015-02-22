@@ -4,6 +4,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
 
+    <link href='http://fonts.googleapis.com/css?family=Roboto&subset=cyrillic-ext,latin,cyrillic' rel='stylesheet' type='text/css'>
+
 	<!--Ol3-->
 	<link href="/css/libs/ol3/ol.css" rel="stylesheet" type="text/css" />
 
@@ -74,8 +76,12 @@
 
         <script id="movieTemplate" type="text/x-jsrender">
             <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><b>{{>key}}</b></div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-nowrap">{{>value}}</div>                
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 noPadding padding-right">
+                    <b>{{>key}}</b>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-nowrap noPadding">
+                    {{>value}}
+                </div>                
             </div>
         </script>        
 
