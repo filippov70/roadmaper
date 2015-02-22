@@ -38,6 +38,7 @@ body{
 	overflow: auto;
 	border-right: 1px solid #93c1dd;
 	border-top: 1px solid #b9d7e9;
+	background: #fff !important;
 
 }
 .right-side {
@@ -56,6 +57,11 @@ body > .header .logo {
 }
 .padding-right{
 	padding-right: 5px;
+}
+
+/*tabs*/
+.tab-content > .legend.active {
+	padding: 10px 0 0 10px;
 }
 
 /*map*/
