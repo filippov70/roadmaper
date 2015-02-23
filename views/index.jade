@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  div(class="demo")
+    a(class="permalink", href="http://www.itlessons.info/nodejs/auth-with-express-and-passportjs/") ← cсылка на статью
+    h1 Авторизация: nodejs, express и passportjs
+    p
+      #user
+        if(user)
+          div(class="user-card")
+            img(src="#{user.photoUrl}", alt="")
+            div(class="user-data")
+              span Имя: #{user.username}
+              br
+              span Профиль: <a href="#{user.profileUrl}">#{user.profileUrl}</a>
+              br
+              div(class="clear")
+          a(href="/sign-out", class="sign-out") Выйти ←
+        else
+          p Вы не авторизованы!
+          a(href="/auth") Авторизоваться →

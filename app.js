@@ -1,45 +1,20 @@
-
-/**
- * Module dependencies.
- */
-
-var express = require('express')
-  , routes = require('./routes')
-  , user = require('./routes/user')
-  , http = require('http')
-  , conf = require('./conf')
-  , logger = require('./libs/log')(module)
-  , path = require('path');
-
+var config = require("nconf");
+var express = require('express');
+var http = require('http');
 var app = express();
 
-/*proxy for getFeatureInfo*/
-var forward = require('./proxy/forward.js');
-app.use(forward(/\/gf\/(.*)/, ''));
+config.argv()
+    .env()
+    .file({ file: 'config.json' });
 
-// all environments
-app.set('port', conf.get('serverport'));
-//app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
-app.use(express.favicon());
-app.use(express.logger('dev'));
-app.use(express.bodyParser());
-app.use(express.methodOverride());
-app.use(app.router);
-app.use(express.static(path.join(__dirname, 'public')));
+//boot
+require('./boot/index')(app);
 
-// development only
-if ('development' === app.get('env')) {
-  app.use(express.errorHandler());
-}
+// routing
+require('./routes/index')(app);
 
-//app.get('/', routes.index);
-app.get('/', function(req, res, next){
-	res.render('index', {
-		
-	});
-});
-
-http.createServer(app).listen(app.get('port'), function(){
-  logger.info('Express server listening on port ' + app.get('port'));
+http.createServer(app).listen(app.get('port'), function () {
+    if ('development' == app.get('env')) {
+        console.log('Express server listening on port ' + app.get('port'));
+    }
 });
