@@ -2,6 +2,7 @@ var passport = require('passport');
 
 module.exports = function (app) {
 
+    /*роут на главную страницу*/
     app.get('/', function (req, res) {
 
         if (req.isAuthenticated()) {
