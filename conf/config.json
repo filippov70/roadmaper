@@ -1,4 +1,8 @@
 {
+    "user":{
+        "name": "admin",
+        "pass": "admin123"
+    },
     "app": {
         "host": "localhost",
         "port": 3000,

@@ -1,15 +1,13 @@
-var config = require("nconf");
+var conf = require('../conf');
 var passport = require('passport');
 var AuthLocalStrategy = require('passport-local').Strategy;
 
 passport.use('local', new AuthLocalStrategy(
     function (username, password, done) {
 
-        if (username == "admin" && password == "admin") {
+        if (username == conf.get("user:name") && password == conf.get("user:pass")) {
             return done(null, {
-                username: "admin",
-                photoUrl: "https://pp.vk.me/c7003/v7003079/374b/53lwetwOxD8.jpg",
-                profileUrl: "http://vk.com/durov"
+                username: conf.get("user:name")
             });
         }
 
