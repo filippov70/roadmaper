@@ -14,6 +14,7 @@ a:hover {
 .demo {
     width: 600px;
     margin: 20px auto;
+    text-align: center;
     padding: 10px;
     color: #4F6B72;
     font-family: "PT Sans", Verdana, Arial, sans-serif;
@@ -51,6 +52,7 @@ a:hover {
 .auth-form {
     padding: 10px;
     background: #fff;
+    margin: auto;
     width: 240px;
     -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);

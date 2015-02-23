@@ -2,7 +2,29 @@ var passport = require('passport');
 
 module.exports = function (app) {
 
-    app.get('/map', function (req, res) {
+    app.get('/', function (req, res) {
+
+        if (req.isAuthenticated()) {
+            res.render('index.ejs', {
+                user: req.user
+            });
+            return;
+        }     
+           
+        res.redirect('/auth');
+    });     
+
+    app.get('/map2', function (req, res) {
+
+        if (req.isAuthenticated()) {
+            res.render('map.ejs');
+            return;
+        }     
+           
+        res.redirect('/auth');
+    });    
+
+    app.get('/map1', function (req, res) {
 
         if (req.isAuthenticated()) {
             res.render('map.ejs');
