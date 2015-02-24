@@ -19,9 +19,7 @@ require([
 
 		$('#map-tabs a:first').tab('show');
 
-		var layout = new Layout(),
-
-			layersTree = new LayersTree($('#jstree_demo_div')),
+		var layersTree = new LayersTree($('#jstree_demo_div')),
 
 			map = new ol.Map({
 				layers: [new ol.layer.Tile({source: new ol.source.OSM()})],
@@ -36,6 +34,8 @@ require([
 					zoom: mapConf.zoom
 				})
 			}),
+
+			layout = new Layout(map),
 
 			olLayerSwitcher = new OlLayerSwitcher({
 				map: map

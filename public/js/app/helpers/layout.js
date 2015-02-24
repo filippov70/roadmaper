@@ -2,7 +2,7 @@ define([
 	'jquery'
 ], function($) {
 
-	return function() {
+	return function(map) {
 
 		//Enable sidebar toggle
 		$("[data-toggle='offcanvas']").click(function(e) {
@@ -19,6 +19,8 @@ define([
 				$('.left-side').toggleClass("collapse-left");
 				$(".right-side").toggleClass("strech");
 			}
+
+			map.updateSize();
 		});
 
 	};
