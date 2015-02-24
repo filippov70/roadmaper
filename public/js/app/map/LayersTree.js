@@ -1,8 +1,10 @@
 define([
 	'jquery',
-	'jstree',
-	'layersTreeConf',
-], function($, jstree, layersTreeConf) {
+	'jstree'
+], function($, jstree) {
+
+	//Набор слоев для дерева, определяется глобально в /js/confs/layersTree.js
+	var layersTreeConf = _layersTreeConfiguration;
 
 	return function(element, options) {
 
