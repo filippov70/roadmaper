@@ -19,6 +19,7 @@ var _layersTreeConfiguration = {
 			children: [{
 				text: 'Административно-территориальное деление',
 				layerInfo: {
+					displayName: 'Административно-территориальное деление',
 					url: 'http://91.210.186.81:8181/geoserver/tis/wms?',
 					layers: 'tis:admin_class',
 					version: '1.1.1',
@@ -43,6 +44,7 @@ var _layersTreeConfiguration = {
 			}, {
 				text: 'Дорожно-транспортная сеть',
 				layerInfo: {
+					displayName: 'Дорожно-транспортная сеть',
 					url: 'http://91.210.186.81:8181/geoserver/tis/wms?',
 					layers: 'tis:all_roads',
 					version: '1.3.0',
@@ -57,6 +59,7 @@ var _layersTreeConfiguration = {
 			}, {
 				text: 'Границы населенных пунктов',
 				layerInfo: {
+					displayName: 'Границы населенных пунктов',
 					url: 'http://91.210.186.81:8181/geoserver/tis/wms?',
 					layers: 'tis:settlements',
 					version: '1.3.0',
@@ -78,6 +81,7 @@ var _layersTreeConfiguration = {
 			children: [{
 				text: 'Кадастр недвижимости ТО',
 				layerInfo: {
+					displayName: 'Кадастр недвижимости ТО',
 					url: 'http://91.210.186.81:8181/geoserver/tis/wms?',
 					layers: 'tis:cadastreparcel',
 					version: '1.1.0',

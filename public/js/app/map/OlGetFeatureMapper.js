@@ -10,14 +10,18 @@ define([
 		$.extend(_options, options || {});	
 
 		return {
-			map: function (features, aliases) {
+			map: function (featureInfo) {
 
-				features = features || [];
-				features = features[0] || {};
+				featureInfo = featureInfo || {};
+				featureInfo.layerInfo = featureInfo.layerInfo || {};
+				featureInfo.features = featureInfo.features || [];				
 
-				var info = [],
+				var features = featureInfo.features[0] || {},
+					aliases = featureInfo.layerInfo.aliases,
+					title = featureInfo.layerInfo.displayName,
+					info = [],
 					property,
-					properties = features.properties || {};				
+					properties = features.properties || {};
 
 				if( aliases ) {
 
@@ -41,7 +45,10 @@ define([
 						}
 					}
 				}
-				return info;
+				return {
+					title: title || '',
+					info: info
+				};
 			}			
 		};
 	};

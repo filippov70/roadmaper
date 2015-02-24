@@ -18,6 +18,7 @@ var _layersTreeConfiguration = {
 			children: [{
 				text: 'Общераспространённые полезные ископаемые',
 				layerInfo: {
+					displayName: 'Общераспространённые полезные ископаемые',
 					url: 'http://91.210.186.81:8181/geoserver/tis/wms?',
 					layers: 'tis:publicminerals',
 					version: '1.3.0',
@@ -32,6 +33,7 @@ var _layersTreeConfiguration = {
 			}, {
 				text: 'Сельскохозяйственные угодия ТО',
 				layerInfo: {
+					displayName: 'Сельскохозяйственные угодия ТО',
 					url: 'http://91.210.186.81:8181/geoserver/tis/wms?',
 					layers: 'tis:agroWGS',
 					version: '1.1.0',
@@ -60,6 +62,7 @@ var _layersTreeConfiguration = {
 			children: [{
 				text: 'Гостиницы',
 				layerInfo: {
+					displayName: 'Гостиницы',
 					url: 'http://data1.geo.indorsoft.ru/geoserver/geoportal/wms?',
 					layers: 'geoportal:RoadHotel_pt',
 					version: '1.3.0',
@@ -74,6 +77,7 @@ var _layersTreeConfiguration = {
 			}, {
 				text: 'АЗС',
 				layerInfo: {
+					displayName: 'АЗС',
 					url: 'http://data1.geo.indorsoft.ru/geoserver/geoportal/wms?',
 					layers: 'geoportal:RoadGasStation_ar',
 					version: '1.3.0',

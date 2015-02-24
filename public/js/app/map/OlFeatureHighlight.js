@@ -32,6 +32,26 @@
 			vectorLayer: _options.vectorLayer,
 			mapProjection: _options.mapProjection,
 
+			highlight: function(features) {
+
+				features = features || [];
+				var that = this;
+
+				that.createLayer();
+
+				$.each(features, function(i, featureInfo){					
+					var feature = featureInfo.features[0] || {},
+						properties = feature.properties || {},
+						geometry = feature.geometry || {},
+						projection = properties.projection || '',
+						coordinates = geometry.coordinates || [];						
+
+					if (coordinates.length) {								
+						that.byGeom(coordinates, geometry.type, projection);
+					}					
+				});
+			},
+
 			byGeom: function(geom, type, projection) {
 
 				var that = this,
@@ -39,7 +59,6 @@
 					feature,
 					olSource;
 
-				that.createLayer();
 				olSource = that.vectorLayer.getSource();
 
 				switch (type) {

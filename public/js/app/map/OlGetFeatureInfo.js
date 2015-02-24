@@ -46,18 +46,21 @@ define([
 			getFeatures: function (layersInfo, coordinate) {
 				layersInfo = layersInfo || [];
 				var that = this,
+					commonRes = [],
 					promises = $.map(layersInfo, function (layerInfo) {
 						return $.ajax('/gf/' + layerInfo.getFUrl).then(function (res) {		
-							//Handler
 							res = res || {};
-							res.layerInfo = layerInfo;
-							return res;										
+							res.features = res.features || [];
+							if(res.features.length){
+								res.layerInfo = layerInfo;
+								commonRes.push(res);	
+							}															
 						});
 					});
 				$.when.apply(this, promises)
-					.then(function (res) {
+					.then(function () {
 						if (typeof that.onGetfeatureinfo === 'function') {
-							that.onGetfeatureinfo(res, coordinate);
+							that.onGetfeatureinfo(commonRes, coordinate);
 						}
 					});
 			},			

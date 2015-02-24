@@ -53,10 +53,10 @@ define([
 
 			overlay: _options.overlay,
 
-			show: function (coordinate, info) {
-				info = info || [];
+			show: function (coordinate, infos) {
+				infos = infos || [];
 				var that = this;
-				that._renderContent(info);
+				that._renderContent(infos);
 				that.overlay.setPosition(coordinate);
 			},
 

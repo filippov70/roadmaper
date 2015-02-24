@@ -57,24 +57,14 @@ require([
 
 			olGetFeatureInfo = new OlGetFeatureInfo({
 				map: map,
-				onGetfeatureinfo: function (evt, coordinate) {	
-					
-					if(evt){
-						evt.features = evt.features || [];
-
-						var info = olGetFeatureMapper.map(evt.features, evt.layerInfo.aliases),
-							feature = evt.features[0] || {},
-							properties = feature.properties || {},
-							geometry = feature.geometry || {},
-							projection = properties.projection || '',
-							coordinates = geometry.coordinates || [];
-
-						olPopup.show(coordinate, info);
-
-						if (coordinates.length) {								
-							olFeatureHighlight.byGeom(coordinates, geometry.type, projection);
-						}					
-					}
+				onGetfeatureinfo: function (features, coordinate) {	
+					var infos = [];
+					$.each(features, function(i, featureInfo){
+						var info = olGetFeatureMapper.map(featureInfo);
+						infos.push(info);					
+					});
+					olPopup.show(coordinate, {infos:infos});
+					olFeatureHighlight.highlight(features);
 				}
 			}),
 
