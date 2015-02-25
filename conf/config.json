@@ -11,7 +11,7 @@
     },
 
     "db":{
-        "dbconn": "postgres://postgres:admin@localhost:5432/tpu",
+        "dbconn": "postgres://postgres:admin@localhost:5432/base",
         "builds": "builds"
     },
 
