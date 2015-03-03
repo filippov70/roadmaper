@@ -19,7 +19,11 @@ require([
 
 		$('#map-tabs a:first').tab('show');
 
-		var layersTree = new LayersTree($('#jstree_demo_div')),
+		var layersTree = new LayersTree($('#jstree_demo_div')),			
+
+			featureImageModalDom = $('#feature_image_modal'),
+
+			featureImageModalBodyDom = featureImageModalDom.find('.modal-body'),
 
 			map = new ol.Map({
 				layers: [new ol.layer.Tile({source: new ol.source.OSM()})],
@@ -65,6 +69,14 @@ require([
 					});
 					olPopup.show(coordinate, {infos:infos});
 					olFeatureHighlight.highlight(features);
+
+					//Модальное окно с картинкой из popup
+					$('.feature_image').click(function(e){
+						var img = document.createElement("img");
+						featureImageModalDom.modal();
+						img.src = $(e.target).attr('data-whatever');
+						featureImageModalBodyDom.html(img);	
+					});
 				}
 			}),
 

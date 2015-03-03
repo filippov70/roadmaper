@@ -33,6 +33,12 @@ define([
 						});
 					});
 
+//Пока нет картинок в слое
+info.push({
+	key: 'imageName',
+	value: '/img/globe.png'
+});					
+
 				} else {
 
 					for ( var key in properties ) {
@@ -44,6 +50,11 @@ define([
 							});
 						}
 					}
+//Пока нет картинок в слое					
+info.push({
+	key: 'imageName',
+	value: '/img/globe.png'
+});
 				}
 				return {
 					title: title || '',
