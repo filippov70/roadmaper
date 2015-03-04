@@ -11,10 +11,9 @@ module.exports = function (app) {
 			if(err) {
 				res.send(404);
 			}
-			res.writeHead(200, {'Content-Type': 'text/html'});
-			res.write('<html><body><img src="data:image/jpeg;base64,')
-			res.write(new Buffer(data).toString('base64'));
-			res.end('"/></body></html>');
+			res.writeHead(200, {'content-type':'image'});
+			res.write(data);
+			res.end();
 		});
 		
 	});
