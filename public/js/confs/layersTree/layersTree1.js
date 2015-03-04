@@ -53,7 +53,8 @@ var _layersTreeConfiguration = {
 					opacity: 100,
 					legend: true,
 					serviceFormat: _serviceFormatConfiguration.wms,
-					isBaseLayer: false
+					isBaseLayer: false,
+					imgField: 'id'
 				},
 				type: 'layer'
 			}, {
