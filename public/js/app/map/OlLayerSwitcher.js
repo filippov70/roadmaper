@@ -29,6 +29,8 @@ define([
 
 			checkedItems: [],
 
+			checkedBaseLayer: null,
+
 			toggleLayer:function(data){
 				var that = this;					
 
@@ -105,6 +107,25 @@ define([
 					that.toggleLayer(data);
 				}
 			},
+			switchBaseLayer: function(data) {
+				var that = this,
+					node = data.node,
+					layerInfo = node.original.layerInfo;									
+				if(!layerInfo){
+					return;
+				}
+				if(that.checkedBaseLayer && that.checkedBaseLayer.id !== node.id){
+					that.checkedBaseLayer.original.layerInfo.layer.setVisible(false);
+				}
+				if(layerInfo.layer){
+					layerInfo.layer.setVisible(true);
+					that.checkedBaseLayer = node;
+				}else{
+					layerInfo.layer = _olLayerFactory.createLayer(layerInfo);
+					layerInfo.layer.setVisible(true);
+					that.checkedBaseLayer = node;
+				}				
+			},			
 			isActive:function(data){
 				if(data.action === "select_node"){
 					return true;

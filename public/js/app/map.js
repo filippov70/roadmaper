@@ -5,6 +5,7 @@ require([
 	'mapConf',
 	'helpers/Layout',
 	'map/LayersTree',
+	'map/BaseLayersTree',
 	'map/OlLayerSwitcher',
 	'map/OlGetFeatureInfo',
 	'map/OlGetFeatureMapper',
@@ -13,20 +14,22 @@ require([
 	'map/OlToolbar',
 	'map/OlFeatureHighlight',
 	'bootstrap'
-], function($, domReady, ol, mapConf, Layout, LayersTree, OlLayerSwitcher, OlGetFeatureInfo, OlGetFeatureMapper, OlPopup, OlLegend, OlToolbar, OlFeatureHighlight) {
+], function($, domReady, ol, mapConf, Layout, LayersTree, BaseLayersTree, OlLayerSwitcher, OlGetFeatureInfo, OlGetFeatureMapper, OlPopup, OlLegend, OlToolbar, OlFeatureHighlight) {
 
 	domReady(function() {
 
 		$('#map-tabs a:first').tab('show');
 
-		var layersTree = new LayersTree($('#jstree_demo_div')),			
+		var layersTree = new LayersTree($('#layers_tree')),	
+
+			baselayersTree = new BaseLayersTree($('#baselayers_tree')),		
 
 			featureImageModalDom = $('#feature_image_modal'),
 
 			featureImageModalBodyDom = featureImageModalDom.find('.modal-body'),
 
 			map = new ol.Map({
-				layers: [new ol.layer.Tile({source: new ol.source.OSM()})],
+				layers: [],
 				target: 'map',
 				controls: [
 					new ol.control.ScaleLine({
@@ -97,6 +100,10 @@ require([
 			olLayerSwitcher.switchLayer(data);
 			olFeatureHighlight.clear();
 			olPopup.clear();
+		};
+
+		baselayersTree.onChange = function(e, data) {	
+			olLayerSwitcher.switchBaseLayer(data);
 		};
 
 		$('a[href="#legend"]').on('shown.bs.tab', function (e) {
