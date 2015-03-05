@@ -1,7 +1,3 @@
-var _serviceFormatConfiguration = {
-	wms: 1
-};
-
 var _layersTreeConfiguration = {
 	data: [{
 		/*ТИС*/
@@ -27,7 +23,7 @@ var _layersTreeConfiguration = {
 					visible: true,
 					opacity: 100,
 					legend: true,
-					serviceFormat: _serviceFormatConfiguration.wms,
+					serviceFormat: 'wms',
 					isBaseLayer: false,
 					aliases: [{
 						field: 'calc_area',
@@ -52,7 +48,7 @@ var _layersTreeConfiguration = {
 					visible: true,
 					opacity: 100,
 					legend: true,
-					serviceFormat: _serviceFormatConfiguration.wms,
+					serviceFormat: 'wms',
 					isBaseLayer: false,
 					imgField: 'id'
 				},
@@ -68,7 +64,7 @@ var _layersTreeConfiguration = {
 					visible: true,
 					opacity: 100,
 					legend: true,
-					serviceFormat: _serviceFormatConfiguration.wms,
+					serviceFormat: 'wms',
 					isBaseLayer: false
 				},
 				type: 'layer'
@@ -90,7 +86,7 @@ var _layersTreeConfiguration = {
 					visible: true,
 					opacity: 100,
 					legend: true,
-					serviceFormat: _serviceFormatConfiguration.wms,
+					serviceFormat: 'wms',
 					isBaseLayer: false
 				},
 				type: 'layer'

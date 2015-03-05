@@ -15,8 +15,7 @@
 		bootstrap: 'libs/twitter-bootstrap/js/bootstrap',
 
 		appConf: 'confs/app',
-		layersTreeConf: 'confs/layersTree',
-		baseLayersTreeConf: 'confs/baseLayersTree',
+		baseLayersTreeConf: 'confs/layersTree/baseLayersTree',
 		mapConf: 'confs/map',
 		helpers: 'app/helpers/',
 		map: 'app/map/'

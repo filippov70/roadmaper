@@ -22,7 +22,7 @@ define([
 				}
 
 				switch (layerInfo.serviceFormat) {
-					case 1:
+					case 'wms':
 						layer = this._wms(layerInfo);
 						layer.setProperties({
 							layerInfo: layerInfo
