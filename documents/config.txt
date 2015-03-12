@@ -12,34 +12,31 @@
 
 var _layersTreeConfiguration = {
 	data: [{
-		text: 'Имя проекта',
-		type: 'road', // для иконки. объект types ниже
+		/*ТИС*/
+		text: 'ТИС',
+		type: 'road',
 		state: {
-			opened: true // раскрыт ли слой
-		},
-		// вложеные слои		
+			opened: true
+		},		
 		children: [{
 			text: 'Административное деление',
 			type: 'complex',
 			state: {
 				opened: true
 			},
-			// вложеные слои
 			children: [{
 				text: 'Административно-территориальное деление',
-				// Описание конкретного слоя с данными
 				layerInfo: {
-					displayName: 'Административно-территориальное деление', // имя
-					url: 'http://91.210.186.81:8181/geoserver/tis/wms?', 
+					displayName: 'Административно-территориальное деление',
+					url: 'http://91.210.186.81:8181/geoserver/tis/wms?',
 					layers: 'tis:admin_class',
 					version: '1.1.1',
 					srs: 'EPSG:3857',
 					visible: true,
 					opacity: 100,
 					legend: true,
-					serviceFormat: _serviceFormatConfiguration.wms,
+					serviceFormat: 'wms',
 					isBaseLayer: false,
-					// Описание имён атрибутивных полей
 					aliases: [{
 						field: 'calc_area',
 						alias: 'Площадь'
@@ -63,8 +60,9 @@ var _layersTreeConfiguration = {
 					visible: true,
 					opacity: 100,
 					legend: true,
-					serviceFormat: _serviceFormatConfiguration.wms,
-					isBaseLayer: false
+					serviceFormat: 'wms',
+					isBaseLayer: false,
+					imgField: 'id'
 				},
 				type: 'layer'
 			}, {
@@ -78,7 +76,7 @@ var _layersTreeConfiguration = {
 					visible: true,
 					opacity: 100,
 					legend: true,
-					serviceFormat: _serviceFormatConfiguration.wms,
+					serviceFormat: 'wms',
 					isBaseLayer: false
 				},
 				type: 'layer'
@@ -100,7 +98,7 @@ var _layersTreeConfiguration = {
 					visible: true,
 					opacity: 100,
 					legend: true,
-					serviceFormat: _serviceFormatConfiguration.wms,
+					serviceFormat: 'wms',
 					isBaseLayer: false
 				},
 				type: 'layer'
@@ -119,7 +117,6 @@ var _layersTreeConfiguration = {
 		}
 	}
 };
-
 
 Получение изображений.
 Для получения изображения используется параметр из запроса по адресу /images. Параеметр ?getimg=имя.файла. 
