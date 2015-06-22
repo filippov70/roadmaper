@@ -78,16 +78,22 @@ define([
 			},	
 			showLayers:function(data){
 				var that = this,
-					checkedItems = data.instance.get_checked([true]);			
+					checkedItems = data.instance.get_checked([true]),
+					parentId = data.node.id;			
 				$.each(checkedItems, function(i, item){
-					that.showLayer(item);
+					if($.inArray(parentId, item.parents) !== -1){
+						that.showLayer(item);
+					}					
 				});					
 			},
 			hideLayers:function(data){
 				var that = this,
-					unCheckedItems = that.checkedItems;			
-				$.each(unCheckedItems, function(i, item){
-					that.hideLayer(item);
+					unCheckedItems = that.checkedItems,
+					parentId = data.node.id;																
+				$.each(unCheckedItems, function(i, item){								
+					if($.inArray(parentId, item.parents) !== -1){
+						that.hideLayer(item);
+					}					
 				});	
 			},	
 			deleteFromCheckedItems:function(node){
@@ -101,9 +107,9 @@ define([
 			switchLayer: function(data) {
 				var that = this,
 					children = data.node.children;
-				if(children.length){
+				if(children.length){					
 					that.toggleLayers(data);
-				}else{
+				}else{					
 					that.toggleLayer(data);
 				}
 			},
