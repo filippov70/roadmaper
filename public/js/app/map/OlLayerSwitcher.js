@@ -137,6 +137,10 @@ define([
 					return true;
 				}
 				return false;
+			},
+			initLayer:function(layerInfo){
+				layerInfo.layer = _olLayerFactory.createLayer(layerInfo);
+				layerInfo.layer.setVisible(false);
 			}			
 		};
 	};

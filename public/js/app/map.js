@@ -96,6 +96,25 @@ require([
 				}
 			});
 
+		layersTree.onLoadNode = function(e, data) {
+
+			data = data || {};				
+			data.node = data.node || {};
+			data.node.children_d = data.node.children_d || [];
+
+			$.each(data.node.children_d,function(i, nodeId){
+				var node = data.instance.get_node(nodeId),
+					layerInfo;
+				if( node ){
+					node.original = node.original || {};
+					layerInfo = node.original.layerInfo;
+					if(layerInfo){
+						olLayerSwitcher.initLayer(layerInfo);
+					}					
+				}				
+			});
+		};					
+
 		layersTree.onChange = function(e, data) {			
 			olLayerSwitcher.switchLayer(data);
 			olFeatureHighlight.clear();

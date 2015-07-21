@@ -10,7 +10,8 @@ define([
 
 		options = options || {};
 
-		this.onChange = null,
+		this.onChange = null;
+		this.onLoadNode = null;
 
 		options = options || {};
 		$.extend(this, options);
@@ -37,6 +38,10 @@ define([
 			if(typeof that.onChange === 'function'){
 				that.onChange(e, data);
 			}
+		}).on('load_node.jstree', function(e, data) {
+			if(typeof that.onLoadNode === 'function'){
+				that.onLoadNode(e, data);
+			}			
 		});
 	};
 });
