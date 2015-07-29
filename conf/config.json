@@ -1,8 +1,12 @@
 {
-    "user":{
-        "name": "admin",
-        "pass": "admin123"
-    },
+    "users":[{
+            "name": "map1",
+            "pass": "pass1"
+        },
+        {
+            "name": "map2",
+            "pass": "pass2"
+    }],
     "app": {
         "host": "localhost",
         "port": 3001,
