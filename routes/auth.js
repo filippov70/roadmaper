@@ -4,8 +4,9 @@ module.exports = function (app) {
     
     /*роут на map3*/
     app.get('/map3', function (req, res) {
-
-        if (req.isAuthenticated()) {
+        console.log(req.path);
+        console.log(req.user);
+        if (req.isAuthenticated() && req.path === '/'+req.user.username) {
             res.render('maps/'+req.user.username+'.ejs');
             return;
         }     
@@ -15,7 +16,8 @@ module.exports = function (app) {
     
     /*роут на map2*/
     app.get('/map2', function (req, res) {
-        console.log(req.params.name);
+        console.log(req.path);
+        console.log(req.user);
         if (req.isAuthenticated() && req.path === '/'+req.user.username) {
             res.render('maps/'+req.user.username+'.ejs');
             return;
@@ -26,7 +28,7 @@ module.exports = function (app) {
 
     /*роут на map1*/
     app.get('/map1', function (req, res) {
-        console.log(req);
+        
         if (req.isAuthenticated() && req.path === '/'+req.user.username) {
             //console.log(req.user.username);
             res.render('maps/'+req.user.username+'.ejs');
@@ -45,7 +47,7 @@ module.exports = function (app) {
         }
 
         res.render('auth', {
-            error: req.flash('error')
+            error: req.flash('Ошибка входа!')
         });
     });
 

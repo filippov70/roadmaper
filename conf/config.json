@@ -4,6 +4,10 @@
             "pass": "pass1"
         },
         {
+            "name": "map3",
+            "pass": "pass3"
+        },
+        {
             "name": "map2",
             "pass": "pass2"
     }],
