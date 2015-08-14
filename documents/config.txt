@@ -13,8 +13,9 @@
 Пример для map3:
 /*роут на map3*/
     app.get('/map3', function (req, res) {
-
-        if (req.isAuthenticated()) {
+        console.log(req.path);
+        console.log(req.user);
+        if (req.isAuthenticated() && req.path === '/'+req.user.username) {
             res.render('maps/'+req.user.username+'.ejs');
             return;
         }     
