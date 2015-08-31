@@ -9,6 +9,7 @@ define([
 	var ZOOM_IN = 'zoom_in',
         ZOOM_OUT = 'zoom_out',
         INFO = 'info',
+        INFOCAD = 'infocad',
 		TOOLBAR = 	'<div class="btn-group map_tools_group" role="group">'+
 	                    '<button class="btn btn-default ' + ZOOM_IN + '" type="button">'+
 	                        '<span class="glyphicon glyphicon-zoom-in color-hard-blue" aria-hidden="true"></span>'+
@@ -17,6 +18,9 @@ define([
 	                        '<span class="glyphicon glyphicon-zoom-out color-hard-blue" aria-hidden="true"></span>'+
 	                    '</button>'+
 	                    '<button class="btn btn-default ' + INFO + '" type="button">'+
+	                        '<span class="glyphicon glyphicon-info-sign color-hard-blue" aria-hidden="true"></span>'+
+	                    '</button>'+
+                            '<button class="btn btn-default ' + INFOCAD + '" type="button">'+
 	                        '<span class="glyphicon glyphicon-info-sign color-hard-blue" aria-hidden="true"></span>'+
 	                    '</button>'+
                 	'</div>'; 
@@ -34,7 +38,9 @@ define([
 
 				zoomout: function(){ options.map.getView().setZoom(options.map.getView().getZoom() - 1); },
 
-				info: function(){}
+				info: function(){},
+                                
+                                infocad: function(){}
 			};
 
 		$.extend(_options, options || {});
@@ -67,6 +73,18 @@ define([
 			if(typeof _options.info === 'function'){
 				_options.info();
 			}
-		});							
+		});
+                
+                $('.map_tools_group .' + INFOCAD).click(function(e){
+			var btn = $(e.target).closest('.' + INFOCAD);
+			if(btn.hasClass('active')){
+				btn.removeClass('active');
+			}else{
+				btn.addClass('active');
+			}			
+			if(typeof _options.infocad === 'function'){
+				_options.infocad();
+			}
+		});
 	};
 });

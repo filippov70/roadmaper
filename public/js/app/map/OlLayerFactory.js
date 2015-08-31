@@ -28,6 +28,12 @@ define([
 							layerInfo: layerInfo
 						});
 						break;
+                                        case 'wmscad':
+						layer = this._wmscad(layerInfo);
+						layer.setProperties({
+							layerInfo: layerInfo
+						});
+						break;        
 					case 'osm':
 						layer = this._osm(layerInfo);
 						layer.setProperties({
@@ -90,6 +96,33 @@ define([
 							LAYERS: layerInfo.layers,
 							VERSION: layerInfo.version,
 							SRS: layerInfo.projection
+						}
+					})
+				});
+
+				if (layerInfo.isBaseLayer) {
+					this.map.getLayers().insertAt(0, layer);
+				} else {
+					this.map.addLayer(layer);
+				}
+
+				return layer;
+
+			}.bind(this),
+                        _wmscad: function(layerInfo) {
+
+				layerInfo.Opacity = layerInfo.Opacity || 100;
+
+				var layer = new ol.layer.Image({
+					opacity: layerInfo.opacity / 100,
+					title: layerInfo.displayName || '',
+					visible: layerInfo.visible || '',
+					source: new ol.source.ImageWMS({
+						url: layerInfo.url,
+						params: {
+							LAYERS: layerInfo.layers,
+							VERSION: layerInfo.version,
+							SRS: layerInfo.srs
 						}
 					})
 				});

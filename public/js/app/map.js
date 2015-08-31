@@ -3,18 +3,19 @@ require([
 	'domReady',
 	'ol',
 	'mapConf',
-	'helpers/Layout',
+	'helpers/layout',
 	'map/LayersTree',
 	'map/BaseLayersTree',
 	'map/OlLayerSwitcher',
 	'map/OlGetFeatureInfo',
+        'map/OlGetFeatureInfoCadastre',
 	'map/OlGetFeatureMapper',
 	'map/OlPopup',
 	'map/OlLegend',
 	'map/OlToolbar',
 	'map/OlFeatureHighlight',
 	'bootstrap'
-], function($, domReady, ol, mapConf, Layout, LayersTree, BaseLayersTree, OlLayerSwitcher, OlGetFeatureInfo, OlGetFeatureMapper, OlPopup, OlLegend, OlToolbar, OlFeatureHighlight) {
+], function($, domReady, ol, mapConf, Layout, LayersTree, BaseLayersTree, OlLayerSwitcher, OlGetFeatureInfo, OlGetFeatureInfoCadastre, OlGetFeatureMapper, OlPopup, OlLegend, OlToolbar, OlFeatureHighlight) {
 
 	domReady(function() {
 
@@ -82,16 +83,41 @@ require([
 					});
 				}
 			}),
+                        
+                        olGetFeatureInfoCadastre = new OlGetFeatureInfoCadastre({
+				map: map,
+				onGetfeatureinfo: function (features, coordinate) {	
+					var infos = [];
+					$.each(features, function(i, featureInfo){
+						var info = olGetFeatureMapper.map(featureInfo);
+						infos.push(info);					
+					});
+					olPopup.show(coordinate, {infos:infos});
+				}
+			}),
 
 			olToolbar = new OlToolbar($('#map-toolbar'), {
 				map: map,
 				info:function(){
 					if (olGetFeatureInfo.isActivate) {
 						olGetFeatureInfo.deactivate();
+                                                olGetFeatureInfoCadastre.activate();
 						olFeatureHighlight.clear();
 						olPopup.clear();
 					} else {
 						olGetFeatureInfo.activate();
+                                                olGetFeatureInfoCadastre.deactivate();
+					}					
+				},
+                                infocad:function(){
+					if (olGetFeatureInfoCadastre.isActivate) {
+						olGetFeatureInfoCadastre.deactivate();
+                                                olGetFeatureInfo.activate();
+						olFeatureHighlight.clear();
+						olPopup.clear();
+					} else {
+						olGetFeatureInfoCadastre.activate();
+                                                olGetFeatureInfo.deactivate();
 					}					
 				}
 			});

@@ -106,17 +106,17 @@ var _layersTreeConfiguration = {
 				opened: true
 			},
 			children: [{
-				text: 'Кадастр недвижимости ТО',
+				text: 'Кадастр недвижимости',
 				layerInfo: {
-					displayName: 'Кадастр недвижимости ТО',
-					url: 'http://91.210.186.81:8181/geoserver/tis/wms?',
-					layers: 'tis:cadastreparcel',
-					version: '1.1.0',
+					displayName: 'Кадастр недвижимости',
+					url: 'http://maps.rosreestr.ru/arcgis/services/Cadastre/CadastreWMS/MapServer/WMSServer',
+					layers: '0,1,2,3', // имена слоёв задаются на ПКК цифрами
+					version: '1.1.1',
 					srs: 'EPSG:3857',
 					visible: true,
 					opacity: 100,
-					legend: true,
-					serviceFormat: 'wms',
+					legend: false,
+					serviceFormat: 'wmscad',
 					isBaseLayer: false
 				},
 				type: 'layer'
