@@ -21,7 +21,7 @@ define([
 	                        '<span class="glyphicon glyphicon-info-sign color-hard-blue" aria-hidden="true"></span>'+
 	                    '</button>'+
                             '<button class="btn btn-default ' + INFOCAD + '" type="button">'+
-	                        '<span class="glyphicon glyphicon-info-sign color-hard-blue" aria-hidden="true"></span>'+
+	                        '<span class="glyphicon glyphicon-flash color-hard-blue" aria-hidden="true"></span>'+
 	                    '</button>'+
                 	'</div>'; 
 
@@ -40,7 +40,7 @@ define([
 
 				info: function(){},
                                 
-                                infocad: function(){}
+                infocad: function(){}
 			};
 
 		$.extend(_options, options || {});
@@ -75,7 +75,7 @@ define([
 			}
 		});
                 
-                $('.map_tools_group .' + INFOCAD).click(function(e){
+        $('.map_tools_group .' + INFOCAD).click(function(e){
 			var btn = $(e.target).closest('.' + INFOCAD);
 			if(btn.hasClass('active')){
 				btn.removeClass('active');

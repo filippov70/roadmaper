@@ -84,7 +84,7 @@ require([
 				}
 			}),
                         
-                        olGetFeatureInfoCadastre = new OlGetFeatureInfoCadastre({
+            olGetFeatureInfoCadastre = new OlGetFeatureInfoCadastre({
 				map: map,
 				onGetfeatureinfo: function (features, coordinate) {	
 					var infos = [];
@@ -109,7 +109,7 @@ require([
                                                 olGetFeatureInfoCadastre.deactivate();
 					}					
 				},
-                                infocad:function(){
+                infocad:function(){
 					if (olGetFeatureInfoCadastre.isActivate) {
 						olGetFeatureInfoCadastre.deactivate();
                                                 olGetFeatureInfo.activate();

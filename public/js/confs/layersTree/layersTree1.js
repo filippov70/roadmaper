@@ -80,14 +80,36 @@ var _layersTreeConfiguration = {
 				layerInfo: {
 					displayName: 'Кадастр недвижимости',
 					url: 'http://maps.rosreestr.ru/arcgis/services/Cadastre/CadastreWMS/MapServer/WMSServer',
-					layers: '0,1,2,3',
+					layers: '0,1,2,3,4,5,6,7,8,9,10,11,12,13',
 					version: '1.1.1',
 					srs: 'EPSG:3857',
 					visible: true,
 					opacity: 100,
 					legend: false,
 					serviceFormat: 'wmscad',
-					isBaseLayer: false
+					isBaseLayer: false,
+                    aliases: [{
+						field: 'Кадастровыйномерземельногоучастка',
+						alias: 'Кадастровый номер'
+					}, {
+						field: 'Категорияземелькод',
+						alias: 'Категория земель'
+					}, {
+						field: 'Видразрешенногоиспользованиякод',
+						alias: 'Разрешённое использование'
+					}, {
+						field: 'Статусземельногоучасткакод',
+						alias: 'Статус'
+					}, {
+						field: 'Значениекадастровойстоимости',
+						alias: 'Кадастровая стоимость, р'
+					}, {
+						field: 'G_AREA',
+						alias: 'Площадь, кв.м'
+					}, {
+						field: 'Датаактуальности',
+						alias: 'Дата актуальности'
+					}]
 				},
 				type: 'layer'
 			}]

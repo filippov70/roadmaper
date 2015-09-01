@@ -109,7 +109,7 @@ define([
 				return layer;
 
 			}.bind(this),
-                        _wmscad: function(layerInfo) {
+            _wmscad: function(layerInfo) {
 
 				layerInfo.Opacity = layerInfo.Opacity || 100;
 
