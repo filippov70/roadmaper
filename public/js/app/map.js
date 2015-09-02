@@ -8,7 +8,7 @@ require([
 	'map/BaseLayersTree',
 	'map/OlLayerSwitcher',
 	'map/OlGetFeatureInfo',
-        'map/OlGetFeatureInfoCadastre',
+    'map/OlGetFeatureInfoCadastre',
 	'map/OlGetFeatureMapper',
 	'map/OlPopup',
 	'map/OlLegend',
