@@ -24,7 +24,7 @@ define([
 	                        '<span class="glyphicon glyphicon-flash color-hard-blue" aria-hidden="true"></span>'+
 	                    '</button>'+
                 	'</div>'; 
-
+            
 	return function(element, options) {
 
 		if(!options.map || !options.map instanceof ol.Map) {
@@ -64,27 +64,29 @@ define([
 		});	
 
 		$('.map_tools_group .' + INFO).click(function(e){
-			var btn = $(e.target).closest('.' + INFO);
-			if(btn.hasClass('active')){
-				btn.removeClass('active');
+			var btnInfo = $(e.target).closest('.' + INFO);
+			if(btnInfo.hasClass('active')){
+				btnInfo.removeClass('active');
 			}else{
-				btn.addClass('active');
-			}			
+				btnInfo.addClass('active');
+                
+			}	
 			if(typeof _options.info === 'function'){
 				_options.info();
 			}
 		});
                 
         $('.map_tools_group .' + INFOCAD).click(function(e){
-			var btn = $(e.target).closest('.' + INFOCAD);
-			if(btn.hasClass('active')){
-				btn.removeClass('active');
+			var btnCinfo = $(e.target).closest('.' + INFOCAD);
+			if(btnCinfo.hasClass('active')){
+				btnCinfo.removeClass('active');
 			}else{
-				btn.addClass('active');
-			}			
+				btnCinfo.addClass('active');
+			}
 			if(typeof _options.infocad === 'function'){
 				_options.infocad();
 			}
 		});
 	};
+
 });

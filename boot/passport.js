@@ -6,7 +6,9 @@ passport.use('local', new AuthLocalStrategy(
     function (username, password, done) {
         var users = conf.get("users");
         //console.log(users.length);
-        for (var i=0; users.length; i++){
+        //console.log(users);
+        var cnt = users.length;
+        for (var i=0; i<cnt; i++){
             //console.log(users[i]);
             if (username === users[i].name && 
                     password === users[i].pass) {
