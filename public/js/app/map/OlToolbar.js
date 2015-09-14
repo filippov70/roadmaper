@@ -182,7 +182,8 @@ define([
         _map.getLayers().forEach(function(el, idx, arr){
            if(el.getSource().addFeatures) {
                el.getSource().clear();
-               _map.removeOverlay();
+               _map.removeOverlay(measureTooltip);
+               $('.ol-overlaycontainer-stopevent').html('');
            }
         });
         
