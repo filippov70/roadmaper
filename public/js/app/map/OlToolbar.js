@@ -65,7 +65,8 @@ define([
             })
         })
     });
-
+    
+    
     /**
      * Currently drawn feature.
      * @type {ol.Feature}
@@ -152,7 +153,7 @@ define([
         } else {
             type = (typeSelect === 'area' ? 'Polygon' : 'LineString');
         }
-        console.log('addInteraction');
+        //console.log('addInteraction');
         draw = new ol.interaction.Draw({
             source: source,
             type: /** @type {ol.geom.GeometryType} */ (type),
@@ -176,6 +177,15 @@ define([
                 })
             })
         });
+        
+        // ОЧистка
+        _map.getLayers().forEach(function(el, idx, arr){
+           if(el.getSource().addFeatures) {
+               el.getSource().clear();
+               _map.removeOverlay();
+           }
+        });
+        
         _map.addInteraction(draw);
 
         createMeasureTooltip();
@@ -323,6 +333,7 @@ define([
             area: function () {}
         };
         _map = options.map;
+        _map.addLayer(vector);
         $.extend(_options, options || {});
 
         if (element) {
@@ -368,11 +379,11 @@ define([
             }
         });
 
-        //map.on('pointermove', pointerMoveHandler);
+        
 
-//        $(map.getViewport()).on('mouseout', function () {
-//            $(helpTooltipElement).addClass('hidden');
-//        });
+        $(options.map.getViewport()).on('mouseout', function () {
+            $(helpTooltipElement).addClass('hidden');
+        });
 
         $('.map_tools_group .lin').click(function (e) {
             var btn = $(e.target).closest('.lin');
@@ -385,7 +396,7 @@ define([
                 options.map.removeInteraction(draw);
                 addInteraction();
                 options.map.on('pointermove', pointerMoveHandler);
-                console.log('length click');
+                //console.log('length click');
             }
         });
         
@@ -400,7 +411,7 @@ define([
                 options.map.removeInteraction(draw);
                 addInteraction();
                 options.map.on('pointermove', pointerMoveHandler);
-                console.log('area click');
+                //console.log('area click');
             }
         });
     };
