@@ -183,7 +183,8 @@ define([
            if(el.getSource().addFeatures) {
                el.getSource().clear();
                _map.removeOverlay(measureTooltip);
-               $('.ol-overlaycontainer-stopevent').html('');
+               _map.removeOverlay(helpTooltip);
+               _map.removeInteraction(draw);
            }
         });
         
@@ -330,7 +331,7 @@ define([
             },
             info: function () {},
             infocad: function () {},
-            lin: function () {},
+            line: function () {},
             area: function () {}
         };
         _map = options.map;
@@ -361,6 +362,9 @@ define([
                 btnInfo.removeClass('active');
             } else {
                 btnInfo.addClass('active').siblings().removeClass('active');
+                _map.removeOverlay(measureTooltip);
+                _map.removeOverlay(helpTooltip);
+                _map.removeInteraction(draw);
                 // http://stackoverflow.com/questions/20870671/bootstrap-3-btn-group-lose-active-class-when-click-any-where-on-the-page
             }
             if (typeof _options.info === 'function') {
@@ -374,6 +378,9 @@ define([
                 btnCinfo.removeClass('active');
             } else {
                 btnCinfo.addClass('active').siblings().removeClass('active');
+                _map.removeOverlay(measureTooltip);
+                _map.removeOverlay(helpTooltip);
+                _map.removeInteraction(draw);
             }
             if (typeof _options.infocad === 'function') {
                 _options.infocad();
@@ -390,14 +397,21 @@ define([
             var btn = $(e.target).closest('.lin');
             if (btn.hasClass('active')) {
                 btn.removeClass('active');
+                _map.removeOverlay(measureTooltip);
+                _map.removeOverlay(helpTooltip);
+                _map.removeInteraction(draw);
+                _map.un('pointermove', pointerMoveHandler);
             }
             else {
                 btn.addClass('active').siblings().removeClass('active');
                 typeSelect='length';
-                options.map.removeInteraction(draw);
+                _map.removeInteraction(draw);
                 addInteraction();
-                options.map.on('pointermove', pointerMoveHandler);
+                _map.on('pointermove', pointerMoveHandler);
                 //console.log('length click');
+            }
+            if (typeof _options.line === 'function') {
+                _options.line();
             }
         });
         
@@ -405,14 +419,21 @@ define([
             var btn = $(e.target).closest('.area');
             if (btn.hasClass('active')) {
                 btn.removeClass('active');
+                _map.removeOverlay(measureTooltip);
+                _map.removeOverlay(helpTooltip);
+                _map.removeInteraction(draw);
+                _map.un('pointermove', pointerMoveHandler);
             }
             else {
                 btn.addClass('active').siblings().removeClass('active');
                 typeSelect='area';
-                options.map.removeInteraction(draw);
+                _map.removeInteraction(draw);
                 addInteraction();
-                options.map.on('pointermove', pointerMoveHandler);
+                _map.on('pointermove', pointerMoveHandler);
                 //console.log('area click');
+            }
+            if (typeof _options.area === 'function') {
+                _options.area();
             }
         });
     };

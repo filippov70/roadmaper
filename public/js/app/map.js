@@ -106,9 +106,15 @@ require([
                             olGetFeatureInfoCadastre.activate();
                             olGetFeatureInfo.deactivate();
                         }
+                    },
+                    area: function () {
+                        olGetFeatureInfo.deactivate();
+                        olGetFeatureInfoCadastre.deactivate();
+                    },
+                    line: function () {
+                        olGetFeatureInfo.deactivate();
+                        olGetFeatureInfoCadastre.deactivate();
                     }
-//                    ,
-//                    area: addInteraction()
                 });
 
         layersTree.onLoadNode = function (e, data) {
