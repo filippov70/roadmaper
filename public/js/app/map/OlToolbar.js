@@ -401,14 +401,18 @@ define([
                 _map.removeOverlay(helpTooltip);
                 _map.removeInteraction(draw);
                 _map.un('pointermove', pointerMoveHandler);
+                $('.tooltip-static').remove();
             }
             else {
                 btn.addClass('active').siblings().removeClass('active');
                 typeSelect='length';
+                _map.removeOverlay(measureTooltip);
+                _map.removeOverlay(helpTooltip);
                 _map.removeInteraction(draw);
+                $('.tooltip-static').remove();
                 addInteraction();
                 _map.on('pointermove', pointerMoveHandler);
-                //console.log('length click');
+                
             }
             if (typeof _options.line === 'function') {
                 _options.line();
@@ -423,14 +427,18 @@ define([
                 _map.removeOverlay(helpTooltip);
                 _map.removeInteraction(draw);
                 _map.un('pointermove', pointerMoveHandler);
+                $('.tooltip-static').remove();
             }
             else {
                 btn.addClass('active').siblings().removeClass('active');
                 typeSelect='area';
+                _map.removeOverlay(measureTooltip);
+                _map.removeOverlay(helpTooltip);
                 _map.removeInteraction(draw);
+                $('.tooltip-static').remove();
                 addInteraction();
                 _map.on('pointermove', pointerMoveHandler);
-                //console.log('area click');
+                
             }
             if (typeof _options.area === 'function') {
                 _options.area();
