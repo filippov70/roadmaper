@@ -33,7 +33,12 @@ define([
 						//Если в конфиге сказано, что данное поле картинка, то присваем соответствующий тип
 						if(featureInfo.layerInfo.imgField === item.field){
 							type = 'img';
-						}	
+						}
+                        for (var reff in featureInfo.layerInfo.refField) {
+                            if(reff === item.field){
+                                type = 'ref';
+                            }
+                        }
 
 						info.push({
 							key: item.alias || '',
@@ -50,7 +55,12 @@ define([
 						//Если в конфиге сказано, что данное поле картинка, то присваем соответствующий тип
 						if(featureInfo.layerInfo.imgField === key){
 							type = 'img';
-						}	
+						}
+                        for (var reff in featureInfo.layerInfo.refField) {
+                            if(reff === key){
+                                type = 'ref';
+                            }
+                        }
 
 						property = properties[key];
 						if ( typeof property === 'string' || typeof property === 'number' || typeof property === 'boolean' ) {

@@ -92,8 +92,12 @@
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-nowrap noPadding">
                             {{if type === 'img' }}
                                 <img class = "feature_image" data-whatever = "/image?getimg={{>value}}.jpg" src = '/image?getimg={{>value}}.jpg' style='max-height:100px;max-width:100px;'>
-                            {{else}}   
-                                {{>value}}
+                            {{else}}
+                                {{if type === 'ref' }}
+                                    <a href="{{>value}}">
+                                {{else}}
+                                    {{>value}}
+                                {{/if}}    
                             {{/if}} 
                         </div>                
                     </div>

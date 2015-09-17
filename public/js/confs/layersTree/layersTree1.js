@@ -50,7 +50,18 @@ var _layersTreeConfiguration = {
 					legend: true,
 					serviceFormat: 'wms',
 					isBaseLayer: false,
-					imgField: 'id'
+					imgField: 'id',
+                    refFields: ['doc1','doc2','doc3'],
+                    aliases: [{
+                        field: 'doc1',
+						alias: 'Документ 1'
+                    },{
+                        field: 'doc2',
+						alias: 'Документ 2'
+                    },{
+                        field: 'doc3',
+						alias: 'Документ 3'
+                    }]
 				},
 				type: 'layer'
 			}, {
