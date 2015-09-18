@@ -38,11 +38,11 @@ var _layersTreeConfiguration = {
 				},
 				type: 'layer'
 			}, {
-				text: 'Дорожно-транспортная сеть',
+				text: 'Проверка URL',
 				layerInfo: {
-					displayName: 'Дорожно-транспортная сеть',
-					url: 'http://91.210.186.81:8181/geoserver/tis/wms?',
-					layers: 'tis:all_roads',
+					displayName: 'Проверка URL',
+					url: 'http://localhost:8181/geoserver/tis-open/wms?',
+					layers: 'tis-open:test_url_layer',
 					version: '1.3.0',
 					srs: 'EPSG:3857',
 					visible: true,
@@ -68,7 +68,7 @@ var _layersTreeConfiguration = {
 				text: 'Границы населенных пунктов',
 				layerInfo: {
 					displayName: 'Границы населенных пунктов',
-					url: 'http://91.210.186.81:8181/geoserver/tis/wms?',
+					url: 'http://localhost:8181/geoserver/tis/wms?',
 					layers: 'tis:settlements',
 					version: '1.3.0',
 					srs: 'EPSG:3857',

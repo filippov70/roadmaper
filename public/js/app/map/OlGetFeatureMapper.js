@@ -34,9 +34,10 @@ define([
 						if(featureInfo.layerInfo.imgField === item.field){
 							type = 'img';
 						}
-                        for (var reff in featureInfo.layerInfo.refField) {
-                            if(reff === item.field){
+                        for (var reff in featureInfo.layerInfo.refFields) {
+                            if(featureInfo.layerInfo.refFields[reff] === item.field){
                                 type = 'ref';
+                                break;
                             }
                         }
 
@@ -56,9 +57,10 @@ define([
 						if(featureInfo.layerInfo.imgField === key){
 							type = 'img';
 						}
-                        for (var reff in featureInfo.layerInfo.refField) {
-                            if(reff === key){
+                        for (var reff in featureInfo.layerInfo.refFields) {
+                            if(featureInfo.layerInfo.refFields[reff] === key){
                                 type = 'ref';
+                                break;
                             }
                         }
 
